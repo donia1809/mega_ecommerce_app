@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/domain/use_case/get_product_use_case.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/presentation/cubits/product_cubit.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/presentation/page/cart_screen.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/page/favourite_screen.dart';
-import 'package:mega_ecommerce_app/features/home_feature/presentation/page/home-screen.dart';
+import 'package:mega_ecommerce_app/features/home_feature/presentation/page/home_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/more_screen.dart';
+import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,7 +22,33 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int selectedIndex = 0;
 
-  var tabs = [HomeScreen(), FavouriteScreen(), CartScreen(), MoreScreen()];
+  late final List<Widget> tabs;
+
+  @override
+  void initState() {
+    super.initState();
+
+    tabs = [
+      BlocProvider(
+        create:
+            (_) =>
+                sl<ProductsCubit>()..getAllProducts(
+                  ProductParams(
+                    page: 1,
+                    keyword: null,
+                    category: null,
+                    minPrice: null,
+                    maxPrice: null,
+                    rating: null,
+                  ),
+                ),
+        child: HomeScreen(), //userName: widget.userName
+      ),
+      FavouriteScreen(),
+      CartScreen(),
+      MoreScreen(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,22 +66,22 @@ class _HomeState extends State<Home> {
         items: [
           _bottomNavigationBarItem(
             index: 0,
-            label: 'Home',
+            label: AppLocalizations.of(context)!.home,
             iconPath: 'assets/icons/home.svg',
           ),
           _bottomNavigationBarItem(
             index: 1,
-            label: 'Favourite',
+            label: AppLocalizations.of(context)!.favourite,
             iconPath: 'assets/icons/favourite.svg',
           ),
           _bottomNavigationBarItem(
             index: 2,
-            label: 'Cart',
+            label: AppLocalizations.of(context)!.cart,
             iconPath: 'assets/icons/cart.svg',
           ),
           _bottomNavigationBarItem(
             index: 3,
-            label: 'More',
+            label: AppLocalizations.of(context)!.menu,
             iconPath: 'assets/icons/more.svg',
           ),
         ],
@@ -66,7 +97,14 @@ class _HomeState extends State<Home> {
     required String iconPath,
   }) {
     return BottomNavigationBarItem(
-      icon: Center(child: SvgPicture.asset(iconPath, width: 24, height: 24)),
+      icon: Center(
+        child: SvgPicture.asset(
+          iconPath,
+          width: 24,
+          height: 24,
+          fit: BoxFit.scaleDown,
+        ),
+      ),
       activeIcon: Center(
         child: Text(
           label,

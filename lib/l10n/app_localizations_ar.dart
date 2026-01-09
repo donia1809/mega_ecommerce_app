@@ -33,6 +33,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pleaseEnterYourNewEmail => 'من فضلك ادخل بريد الكتروني جديد';
 
   @override
+  String get pleaseEnterEmailAddress => 'من فضلك ادخل البريد الالكتروني الخاص بك';
+
+  @override
+  String get pleaseEnterPassword => 'من فضلك ادخل كلمة المرور الخاصة بك';
+
+  @override
+  String get pleaseEnterValidEmail => 'من ضلك ادخل بريد الكتروني صحيح';
+
+  @override
+  String get passwordMustBeAtLeast6Characters => 'كلمة المرور يجب ان تحتوي علي 6 ارقام';
+
+  @override
   String get newPassword => 'كلمة مرور جديدة';
 
   @override
@@ -216,4 +228,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get next => 'التالي';
+
+  @override
+  String get producDetails => 'تفاصيل المنتج';
+
+  @override
+  String get description => 'وصف المنتج';
+
+  @override
+  String get price => 'السعر';
+
+  @override
+  String get lookGoodFeelGood => 'Look Good, Feel Good';
+
+  @override
+  String get createUniqueStyle => 'اصنع أسلوبك الفريد والمميز وكن رائعًا كل يوم.';
+
+  @override
+  String get pleaseEnterValidPassword => 'من ضلك ادخل كلمة مرور صحيحة';
 }

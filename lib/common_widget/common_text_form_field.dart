@@ -6,7 +6,7 @@ typedef Validator = String? Function(String? text);
 class CommonTextFormFieldWidget extends StatefulWidget {
   final String hintText;
   final String lable;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final Validator validator;
   final bool securedPassword;
 

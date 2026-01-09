@@ -33,6 +33,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseEnterYourNewEmail => 'Please Enter Your New Email';
 
   @override
+  String get pleaseEnterEmailAddress => 'Please Enter Email Address';
+
+  @override
+  String get pleaseEnterPassword => 'Please Enter Password';
+
+  @override
+  String get pleaseEnterValidEmail => 'Please enter a valid email';
+
+  @override
+  String get passwordMustBeAtLeast6Characters => 'Password must be at least 6 characters';
+
+  @override
   String get newPassword => 'New Password';
 
   @override
@@ -216,4 +228,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get next => 'Next';
+
+  @override
+  String get producDetails => 'Product Details';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get price => 'Price';
+
+  @override
+  String get lookGoodFeelGood => 'Look Good, Feel Good';
+
+  @override
+  String get createUniqueStyle => 'Create your individual & unique style and look amazing everyday.';
+
+  @override
+  String get pleaseEnterValidPassword => 'Please Enter Valid Password';
 }

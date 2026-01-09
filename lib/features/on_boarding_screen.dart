@@ -44,15 +44,15 @@ class OnBoardingScreen extends StatelessWidget
                 children:
                  [
                   Text(
-                    'Look Good, Feel Good',
+                    AppLocalizations.of(context)!.lookGoodFeelGood,
                     style: AppTextStyles.bold24
                     ),
 
                   SizedBox(height:context.screenHeight * 0.02 ),
 
                   Text(
+                    AppLocalizations.of(context)!.createUniqueStyle,
                     textAlign: TextAlign.center,
-                    'Create your individual & unique style and look amazing everyday.',
                     style: AppTextStyles.regular15
                   ),
 

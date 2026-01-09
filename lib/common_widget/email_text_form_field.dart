@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mega_ecommerce_app/common_widget/common_text_form_field.dart';
+import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class EmailTextFormField extends StatelessWidget {
   final TextEditingController controller;
@@ -12,15 +13,15 @@ class EmailTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonTextFormFieldWidget(
-      hintText: 'Enter email address',
-      lable: 'Email Address',
+      hintText: AppLocalizations.of(context)!.enterYourEmailAddress,
+      lable: AppLocalizations.of(context)!.emailAddress,
       controller: controller,
       validator: (text) {
         if (text == null || text.trim().isEmpty == true) {
-          return 'please enter email address';
+          return AppLocalizations.of(context)!.pleaseEnterEmailAddress;
         }
         if (!text.contains('@')) {
-          return 'Please enter a valid email';
+          return AppLocalizations.of(context)!.pleaseEnterValidEmail;
         }
         return null;
       },

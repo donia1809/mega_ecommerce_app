@@ -10,6 +10,10 @@
   "newEmail": "New Email",
   "enterNewEmail": "Enter New Email",
   "pleaseEnterYourNewEmail": "Please Enter Your New Email",
+  "pleaseEnterEmailAddress": "Please Enter Email Address",
+  "pleaseEnterPassword": "Please Enter Password",
+  "pleaseEnterValidEmail" :"Please enter a valid email",
+  "passwordMustBeAtLeast6Characters": "Password must be at least 6 characters",
   "newPassword": "New Password",
   "enterYourEmailAddress": "Enter Your Email Address",
   "password": "Password",
@@ -78,5 +82,11 @@
   "home": "Home",
   "favourite": "favourite",
   "cart": "Cart",
-  "next": "Next"
+  "next": "Next",
+  "producDetails":"Product Details",
+  "description":"Description",
+  "price":"Price",
+  "lookGoodFeelGood": "Look Good, Feel Good",
+  "createUniqueStyle": "Create your individual & unique style and look amazing everyday.",
+  "pleaseEnterValidPassword":"Please Enter Valid Password"
 }

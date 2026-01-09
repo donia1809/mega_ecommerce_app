@@ -143,6 +143,30 @@ abstract class AppLocalizations {
   /// **'Please Enter Your New Email'**
   String get pleaseEnterYourNewEmail;
 
+  /// No description provided for @pleaseEnterEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Email Address'**
+  String get pleaseEnterEmailAddress;
+
+  /// No description provided for @pleaseEnterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Password'**
+  String get pleaseEnterPassword;
+
+  /// No description provided for @pleaseEnterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email'**
+  String get pleaseEnterValidEmail;
+
+  /// No description provided for @passwordMustBeAtLeast6Characters.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passwordMustBeAtLeast6Characters;
+
   /// No description provided for @newPassword.
   ///
   /// In en, this message translates to:
@@ -508,6 +532,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Next'**
   String get next;
+
+  /// No description provided for @producDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Details'**
+  String get producDetails;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @price.
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get price;
+
+  /// No description provided for @lookGoodFeelGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Look Good, Feel Good'**
+  String get lookGoodFeelGood;
+
+  /// No description provided for @createUniqueStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your individual & unique style and look amazing everyday.'**
+  String get createUniqueStyle;
+
+  /// No description provided for @pleaseEnterValidPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Valid Password'**
+  String get pleaseEnterValidPassword;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

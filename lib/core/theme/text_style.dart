@@ -29,12 +29,23 @@ class AppTextStyles
     color: AppColors.black,
   );
 
+   static const TextStyle medium10 = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w500,
+    color: AppColors.black,
+  );
+
   static const TextStyle bold15 = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.black,
   );
 
+  static const TextStyle semiBold14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
+  );
   static  TextStyle button18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,

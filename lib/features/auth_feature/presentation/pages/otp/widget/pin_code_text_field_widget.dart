@@ -15,7 +15,7 @@ class PinCodeTextFieldWidget extends StatelessWidget {
       length: 4,
       controller: controller,
       keyboardType: TextInputType.number,
-      animationType: AnimationType.fade,
+      animationType: AnimationType.slide,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return AppLocalizations.of(context)!.oTPIsRequired;

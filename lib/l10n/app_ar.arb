@@ -16,6 +16,10 @@
   "pleaseEnterYourNewEmail": "من فضلك ادخل بريد الكتروني جديد",
   "enterYourPassword": "أدخل كلمة المرور",
   "forgetPassword": "نسيت كلمة المرور",
+  "passwordMustBeAtLeast6Characters": "كلمة المرور يجب ان تحتوي علي 6 ارقام",
+  "pleaseEnterValidEmail" :"من ضلك ادخل بريد الكتروني صحيح",
+  "pleaseEnterEmailAddress": "من فضلك ادخل البريد الالكتروني الخاص بك",
+  "pleaseEnterPassword": "من فضلك ادخل كلمة المرور الخاصة بك",
   "alreadyHaveAccount": "لديك حساب بالفعل",
   "signUp": "إنشاء حساب",
   "oTPIsRequired": "كود التحقق مطلوب",
@@ -78,5 +82,11 @@
   "home": "الرئيسية",
   "favourite": "المفضلة",
   "cart": "سلة التسوق",
-  "next": "التالي"
+  "next": "التالي",
+  "producDetails":"تفاصيل المنتج",
+  "description":"وصف المنتج",
+  "price":"السعر",
+  "lookGoodFeelGoogood": "مظهر جيد، شعور جيد",
+  "createUniqueStyle": "اصنع أسلوبك الفريد والمميز وكن رائعًا كل يوم.",
+  "pleaseEnterValidPassword":"من ضلك ادخل كلمة مرور صحيحة"
 }
