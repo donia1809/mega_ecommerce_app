@@ -40,7 +40,7 @@ class _ResetPaswordScreenState extends State<ResetPaswordScreen> {
 }
 
 class _ResetPasswordScreenBody extends StatefulWidget {
-  const _ResetPasswordScreenBody({super.key});
+  const _ResetPasswordScreenBody();
 
   @override
   State<_ResetPasswordScreenBody> createState() =>

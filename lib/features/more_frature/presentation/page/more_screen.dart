@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mega_ecommerce_app/common_widget/app_loading_widget.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
@@ -18,9 +19,7 @@ class MoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => sl<UserProfileCubit>()..getProfile(),
-        ),
+        BlocProvider(create: (context) => sl<UserProfileCubit>()..getProfile()),
         BlocProvider(create: (context) => sl<LogoutCubit>()),
       ],
       child: Scaffold(
@@ -41,6 +40,9 @@ class MoreScreen extends StatelessWidget {
                   SizedBox(height: 16),
                   BlocBuilder<UserProfileCubit, IUserProfileState>(
                     builder: (context, state) {
+                      if (state is UserProfileLoadingState) {
+                        return AppLoadingWidget();
+                      }
                       if (state is UserProfileSuccessState) {
                         return ListTile(
                           onTap: () {

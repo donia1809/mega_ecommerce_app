@@ -10,17 +10,15 @@ sealed class IAutoLogintState extends Equatable {
 final class AutoLoginInitial extends IAutoLogintState {}
 
 class AppUnAuthenticatedState extends IAutoLogintState {
-  final Failure failure;
-
-  const AppUnAuthenticatedState({required this.failure});
+  const AppUnAuthenticatedState();
 
   @override
-  List<Object?> get props => [failure];
+  List<Object?> get props => [];
 }
 
 class AppAuthenticatedState extends IAutoLogintState {
-
-  const AppAuthenticatedState();
+  final CachedUserEntity user;
+  const AppAuthenticatedState({required this.user});
 
   @override
   List<Object?> get props => [];

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/login/login_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/otp/otp_screen.dart';
+import 'package:mega_ecommerce_app/features/product_feature/presentation/page/add_review_screen.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/reset_pasword_screen.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/reset_email_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/signup/signup_screen.dart';
-import 'package:mega_ecommerce_app/features/cart_feature/presentation/page/cart_screen.dart';
-import 'package:mega_ecommerce_app/features/home_feature/presentation/page/all_products_screen.dart';
+import 'package:mega_ecommerce_app/features/product_feature/presentation/page/cart_screen.dart';
+import 'package:mega_ecommerce_app/features/product_feature/presentation/page/all_products_screen.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/page/favourite_screen.dart';
 import 'package:mega_ecommerce_app/features/home_feature/presentation/page/home_screen.dart';
 import 'package:mega_ecommerce_app/features/home_feature/presentation/page/notifications_screen.dart';
-import 'package:mega_ecommerce_app/features/home_feature/presentation/page/product_details_screen.dart';
+import 'package:mega_ecommerce_app/features/product_feature/presentation/page/product_details_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/about_app_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/change_language_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/more_screen.dart';
@@ -42,6 +43,7 @@ class AppRoutes {
   static const String termsAndConditionsScreen = '/termsAndConditionsScreen';
   static const String aboutAppScreen = '/aboutAppScreen';
   static const String privacyPolicyscreen = '/privacyPolicyscreen';
+  static const String addReviewscreen = '/addReviewscreen';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     final Widget child;
@@ -93,9 +95,7 @@ class AppRoutes {
         child = const MoreScreen();
 
       case profileDetailsScreen:
-        child = ProfileDetailsScreen(
-
-        );
+        child = ProfileDetailsScreen();
 
       case changeLanguageScreen:
         child = const ChangeLanguageScreen();
@@ -108,6 +108,10 @@ class AppRoutes {
 
       case privacyPolicyscreen:
         child = const PrivacyPolicyScreen();
+
+      case addReviewscreen:
+      final productId = settings.arguments as String;
+        child =  AddReviewScreen(productId: productId,);
 
       default:
         child = const OnBoardingScreen();

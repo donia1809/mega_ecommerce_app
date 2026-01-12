@@ -4,9 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
-import 'package:mega_ecommerce_app/features/cart_feature/domain/use_case/get_product_use_case.dart';
-import 'package:mega_ecommerce_app/features/cart_feature/presentation/cubits/product_cubit.dart';
-import 'package:mega_ecommerce_app/features/cart_feature/presentation/page/cart_screen.dart';
+import 'package:mega_ecommerce_app/features/product_feature/domain/use_case/get_product_use_case.dart';
+import 'package:mega_ecommerce_app/features/product_feature/presentation/cubits/product/product_cubit.dart';
+import 'package:mega_ecommerce_app/features/product_feature/presentation/page/cart_screen.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/page/favourite_screen.dart';
 import 'package:mega_ecommerce_app/features/home_feature/presentation/page/home_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/more_screen.dart';
@@ -22,32 +22,21 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int selectedIndex = 0;
 
-  late final List<Widget> tabs;
+  final List<Widget> tabs = [];
 
   @override
   void initState() {
     super.initState();
-
-    tabs = [
+    tabs.addAll([
       BlocProvider(
         create:
-            (_) =>
-                sl<ProductsCubit>()..getAllProducts(
-                  ProductParams(
-                    page: 1,
-                    keyword: null,
-                    category: null,
-                    minPrice: null,
-                    maxPrice: null,
-                    rating: null,
-                  ),
-                ),
+            (_) => sl<ProductsCubit>()..getAllProducts(ProductParams(page: 1)),
         child: HomeScreen(), //userName: widget.userName
       ),
       FavouriteScreen(),
       CartScreen(),
       MoreScreen(),
-    ];
+    ]);
   }
 
   @override

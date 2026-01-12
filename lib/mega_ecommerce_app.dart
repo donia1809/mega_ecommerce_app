@@ -6,6 +6,8 @@ import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart'
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
 import 'package:mega_ecommerce_app/core/theme/theme.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/auto_login/auto_login_cubit.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/login/login_screen.dart';
+import 'package:mega_ecommerce_app/features/on_boarding_screen.dart';
 import 'package:mega_ecommerce_app/home.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -34,13 +36,12 @@ class MegaEcommerceApp extends StatelessWidget {
             create: (_) => sl<AppLanguageCubit>()..getSavedLanguage(),
           ),
           BlocProvider(create: (_) => sl<AutoLoginCubit>()..autoLogin()),
-
         ],
         child: BlocBuilder<AppLanguageCubit, AppLanguageState>(
           builder: (context, state) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Flutter Demo',
+              title: 'Mega',
               locale: state.language.getLocal,
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
@@ -61,20 +62,30 @@ class AppStart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AutoLoginCubit, IAutoLogintState>(
+    return BlocConsumer<AutoLoginCubit, IAutoLogintState>(
       listener: (context, state) {
-        if (state is AppAuthenticatedState) {
-          context.remove();
-          context.navigateTo(AppRoutes.home);
-        } else if (state is AppUnAuthenticatedState) {
-          context.remove();
-          context.navigateTo(AppRoutes.loginScreen);
-        } else if (state is AppGuestState) {
-          context.remove();
-          context.navigateTo(AppRoutes.loginScreen);
+        // if (state is AppAuthenticatedState) {
+        //   context.remove();
+        //   context.navigateTo(AppRoutes.home);
+        // } else if (state is AppUnAuthenticatedState) {
+        //   context.remove();
+        //   context.navigateTo(AppRoutes.loginScreen);
+        // } else if (state is AppGuestState) {
+        //   context.remove();
+        //   context.navigateTo(AppRoutes.loginScreen);
+        // }
+      },
+      builder: (context, state) {
+        switch (state) {
+          case AutoLoginInitial():
+            return Material(child: SizedBox());
+          case AppUnAuthenticatedState():
+            return OnBoardingScreen();
+          case AppAuthenticatedState():
+          case AppGuestState():
+            return const Home();
         }
       },
-      child: const Scaffold(body: Home()),
     );
   }
 }
