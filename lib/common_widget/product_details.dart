@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
-import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/auto_login/auto_login_cubit.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/cubit/toggle_favourite/toggle_favourite_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
