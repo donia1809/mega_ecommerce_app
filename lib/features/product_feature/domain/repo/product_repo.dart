@@ -8,5 +8,5 @@ abstract class ProductRepo {
   Future<Either<Failure, ProductsPaginationEntity>> getProducts(
     ProductParams params,
   );
-  Future<Either<Failure, ProductsEntity>> getProductById(String id);
+  Future<Either<Failure, ProductEntity>> getProductById(String id);
 }

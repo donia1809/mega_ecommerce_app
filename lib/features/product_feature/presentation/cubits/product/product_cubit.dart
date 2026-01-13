@@ -7,36 +7,35 @@ import 'package:mega_ecommerce_app/features/product_feature/domain/use_case/get_
 part 'product_state.dart';
 
 class ProductsCubit extends Cubit<IProductsState> {
-  ProductParams? _lastParams;
-
   final GetProductUseCase _getProductUseCase;
-  ProductsCubit(this._getProductUseCase)
-    : super(ProductsInitialState());
+  ProductsCubit(this._getProductUseCase) : super(ProductsInitialState());
 
-  Future<void> getAllProducts(ProductParams params) async {
-  _lastParams = params;
-  emit(ProductsLoadingState());
+  void getAllProducts(ProductParams params) async {
+    emit(ProductsLoadingState());
 
-  final result = await _getProductUseCase(params);
+    final result = await _getProductUseCase(params);
 
-  result.fold(
-    (failure) => emit(ProductsFailureState(failure: failure)),
-    (result) => emit(ProductsSuccessState(products: result.products)),
-  );
-}
+    result.fold(
+      (failure) => emit(ProductsFailureState(failure: failure)),
+      (result) => emit(ProductsSuccessState(products: result.products)),
+    );
+  }
 
+  void updateProduct({required ProductEntity newProduct}) async {
+    final state = this.state;
+    if (state is ProductsSuccessState) {
+      final List<ProductEntity> stateProducts = [...state.products];
+      final List<ProductEntity> tempProducts = [];
 
-Future<void> refreshProducts() async {
-  if (_lastParams == null) return;
+      for (ProductEntity product in stateProducts) {
+        if (newProduct.id == product.id) {
+          tempProducts.add(newProduct);
+        } else {
+          tempProducts.add(product);
+        }
+      }
 
-  emit(ProductsRefreshingState());
-
-  final result = await _getProductUseCase(_lastParams!);
-
-  result.fold(
-    (failure) => emit(ProductsFailureState(failure: failure)),
-    (result) => emit(ProductsSuccessState(products: result.products)),
-  );
-}
-
+      emit(state.copyWith(products: tempProducts));
+    }
+  }
 }

@@ -86,7 +86,7 @@ class AppRoutes {
         child = ProductDetailsScreen(productId: productId);
 
       case favouriteScreen:
-        child = const FavouriteScreen();
+        child = const FavoriteScreen();
 
       case cartScreen:
         child = const CartScreen();
@@ -110,8 +110,8 @@ class AppRoutes {
         child = const PrivacyPolicyScreen();
 
       case addReviewscreen:
-      final productId = settings.arguments as String;
-        child =  AddReviewScreen(productId: productId,);
+        final productId = settings.arguments as String;
+        child = AddReviewScreen(productId: productId);
 
       default:
         child = const OnBoardingScreen();

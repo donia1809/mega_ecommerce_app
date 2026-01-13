@@ -25,7 +25,7 @@ class ProductRepoImpl implements ProductRepo {
   }
 
   @override
-  Future<Either<Failure, ProductsEntity>> getProductById(String id) async {
+  Future<Either<Failure, ProductEntity>> getProductById(String id) async {
     try {
       final product = await productRemoteDataSource.getProductById(id);
       return Right(product);

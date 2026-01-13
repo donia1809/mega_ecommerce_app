@@ -4,12 +4,13 @@ import 'package:mega_ecommerce_app/features/product_feature/domain/entities/prod
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class ProductDescriptionWidget extends StatelessWidget {
-  final ProductsEntity product;
+  final ProductEntity product;
 
   const ProductDescriptionWidget({super.key, required this.product});
   @override
   Widget build(BuildContext context) {
-    return Column( crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           AppLocalizations.of(context)!.description,

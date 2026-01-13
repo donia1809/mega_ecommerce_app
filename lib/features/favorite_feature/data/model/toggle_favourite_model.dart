@@ -1,4 +1,4 @@
-import 'package:mega_ecommerce_app/features/favorite_feature/domain/entity/favourite_entity.dart';
+import 'package:mega_ecommerce_app/features/favorite_feature/domain/entity/toggle_favorite_entity.dart';
 
 class ToggleFavoriteModel extends ToggleFavoriteEntity {
   const ToggleFavoriteModel({

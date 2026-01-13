@@ -4,19 +4,26 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
-import 'package:mega_ecommerce_app/features/favorite_feature/presentation/cubit/toggle_favourite/toggle_favourite_cubit.dart';
+import 'package:mega_ecommerce_app/features/favorite_feature/presentation/cubit/toggle_favorite/toggle_favourite_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
 
-class ProductCard extends StatelessWidget {
-  final ProductsEntity product;
+class ProductDetails extends StatelessWidget {
+  final ProductEntity product;
   final VoidCallback onTap;
-  const ProductCard({super.key, required this.product, required this.onTap});
+  final void Function(ProductEntity newProduct)? onToggleFavoriteSuccess;
+  const ProductDetails({
+    super.key,
+    required this.product,
+    required this.onTap,
+    this.onToggleFavoriteSuccess,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<ToggleFavouriteCubit>(),
+      create: (context) => sl<ToggleFavoriteCubit>(),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
@@ -48,21 +55,34 @@ class ProductCard extends StatelessWidget {
                         authenticatedBuilder: (user) {
                           return Padding(
                             padding: const EdgeInsets.all(16),
-                            child: BlocBuilder<
-                              ToggleFavouriteCubit,
-                              IToggleFavouriteState
+                            child: BlocConsumer<
+                              ToggleFavoriteCubit,
+                              IToggleFavoriteState
                             >(
+                              listener: (context, state) {
+                                if (state is ToggleFavoriteFailureState) {
+                                  showSnackBar(
+                                    context: context,
+                                    message: state.failure.message,
+                                    color: AppColors.red,
+                                  );
+                                } else if (state
+                                    is ToggleFavoriteSuccessState) {
+                                  onToggleFavoriteSuccess?.call(
+                                    product.toggleFavorite(user.id),
+                                  );
+                                }
+                              },
                               builder: (context, state) {
                                 final isLoading =
-                                    state is ToggleFavouriteLoadingState;
-
+                                    state is ToggleFavoriteLoadingState;
                                 return InkWell(
                                   onTap:
                                       isLoading
                                           ? null
                                           : () {
                                             context
-                                                .read<ToggleFavouriteCubit>()
+                                                .read<ToggleFavoriteCubit>()
                                                 .toggleFavourite(product.id);
                                           },
                                   child:

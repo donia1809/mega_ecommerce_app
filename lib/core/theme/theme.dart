@@ -6,7 +6,7 @@ class AppTheme {
   static Color defaultBackground = AppColors.white;
   static Color lightPrimary = AppColors.primaryColor;
   static final ThemeData lightTheme = ThemeData(
-    appBarTheme: AppBarTheme(color: defaultBackground,centerTitle: true),
+    appBarTheme: AppBarTheme(color: defaultBackground,centerTitle: true,titleTextStyle: AppTextStyles.bold15),
 
     scaffoldBackgroundColor: defaultBackground,
 

@@ -50,7 +50,7 @@ class ProductDetailsScreen extends StatelessWidget {
 }
 
 class _ProductDetailsScreenBody extends StatelessWidget {
-  final ProductsEntity product;
+  final ProductEntity product;
 
   const _ProductDetailsScreenBody({required this.product});
 

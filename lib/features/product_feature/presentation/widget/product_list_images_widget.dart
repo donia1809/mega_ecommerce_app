@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
 
 class ProductListImages extends StatelessWidget {
-  final ProductsEntity product;
+  final ProductEntity product;
 
   const ProductListImages({super.key, required this.product});
 

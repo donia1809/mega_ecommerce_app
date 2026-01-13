@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'product_entity.dart';
 
 class ProductsPaginationEntity extends Equatable {
-  final List<ProductsEntity> products;
+  final List<ProductEntity> products;
   final int page;
   final int pages;
 

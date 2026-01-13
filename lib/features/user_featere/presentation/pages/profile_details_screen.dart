@@ -127,7 +127,9 @@ class __ProfileBodyState extends State<_ProfileBody> {
                     context.read<UpdateProfileCubit>().updateProfile(
                       UpdateProfileParams(
                         name: _nameController.text,
-                        avatar: _selectedImage!.path,
+                        avatar: _selectedImage!=null
+                        ?_selectedImage!.path
+                        :widget.data.avatar,
                       ),
                     );
                   },

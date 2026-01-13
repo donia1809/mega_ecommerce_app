@@ -64,8 +64,13 @@ class AllProductsScreen extends StatelessWidget {
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
                   final product = products[index];
-                  return ProductCard(
+                  return ProductDetails(
                     product: product,
+                    onToggleFavoriteSuccess: (newProduct) {
+                      context.read<ProductsCubit>().updateProduct(
+                        newProduct: newProduct,
+                      );
+                    },
                     onTap: () {
                       context.navigateTo(
                         AppRoutes.productDetailsScreen,

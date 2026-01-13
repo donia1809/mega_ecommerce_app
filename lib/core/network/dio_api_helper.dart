@@ -17,7 +17,7 @@ class DioApiHelper implements ApiHelper {
               receiveTimeout: const Duration(seconds: 50),
               sendTimeout: const Duration(seconds: 50),
               headers: {
-                'Content-Type': 'application/json',
+                //'Content-Type': 'application/json',
                 'Accept': 'application/json',
               },
             )

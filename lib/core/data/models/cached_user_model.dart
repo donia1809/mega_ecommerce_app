@@ -37,6 +37,7 @@ class CachedUserModel extends CachedUserEntity {
     return {'id': id, 'name': name, 'email': email, 'isVerified': isVerified};
   }
 
+  @override
   String toString() {
     return jsonEncode(toJson());
   }

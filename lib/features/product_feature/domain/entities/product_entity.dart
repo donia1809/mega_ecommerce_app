@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/review_entity.dart';
 
-class ProductsEntity extends Equatable {
+class ProductEntity extends Equatable {
   final String id;
   final String owner;
   final String name;
@@ -18,7 +18,7 @@ class ProductsEntity extends Equatable {
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  const ProductsEntity({
+  const ProductEntity({
     required this.id,
     required this.owner,
     required this.name,
@@ -41,8 +41,8 @@ class ProductsEntity extends Equatable {
     return isFavorite;
   }
 
-  ProductsEntity copyWith({final List<String>? favorites}) {
-    return ProductsEntity(
+  ProductEntity copyWith({final List<String>? favorites}) {
+    return ProductEntity(
       id: id,
       favorites: favorites ?? this.favorites,
       category: category,
@@ -61,7 +61,7 @@ class ProductsEntity extends Equatable {
     );
   }
 
-  ProductsEntity toggleFavorite(String currentUserId) {
+  ProductEntity toggleFavorite(String currentUserId) {
     final List<String> tempFavoritesUsersIds = favorites;
     if (isFavorite(currentUserId)) {
       tempFavoritesUsersIds.remove(currentUserId);

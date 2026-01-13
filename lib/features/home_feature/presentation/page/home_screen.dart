@@ -52,11 +52,6 @@ class HomeScreen extends StatelessWidget {
                           context.read<ProductsCubit>().getAllProducts(
                             ProductParams(
                               page: 1,
-                              keyword: null,
-                              category: null,
-                              minPrice: null,
-                              maxPrice: null,
-                              rating: null,
                             ),
                           );
                         },
@@ -64,7 +59,11 @@ class HomeScreen extends StatelessWidget {
                     }
 
                     if (state is ProductsSuccessState) {
-                      return ProductGridViewWidget(products: state.products);
+                      return ProductGridViewWidget(products: state.products,
+                      onToggleFavoriteSuccess: (newProduct) {
+            context.read<ProductsCubit>().updateProduct(newProduct: newProduct);
+            
+          },);
                     }
                     return const SizedBox.shrink();
                   },

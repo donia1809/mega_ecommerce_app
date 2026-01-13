@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mega_ecommerce_app/common_widget/app_loading_widget.dart';
+import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/user_profile/user_profile_cubit.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class HeaderWidget extends StatelessWidget {
@@ -10,32 +14,44 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      trailing: Container(
-        width: 45,
-        height: 45,
-        decoration: BoxDecoration(
-          color: AppColors.containerBackground,
-          shape: BoxShape.circle,
-        ),
-        child: InkWell(
-          onTap: () {
-            context.navigateTo('/notificationsScreen');
-          },
-          child: SvgPicture.asset(
-            'assets/icons/notification.svg',
-            height: 24,
-            width: 24,
-            fit: BoxFit.scaleDown,
+    return BlocProvider(
+      create: (context) => sl<UserProfileCubit>()..getProfile(),
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        trailing: Container(
+          width: 45,
+          height: 45,
+          decoration: BoxDecoration(
+            color: AppColors.containerBackground,
+            shape: BoxShape.circle,
+          ),
+          child: InkWell(
+            onTap: () {
+              context.navigateTo('/notificationsScreen');
+            },
+            child: SvgPicture.asset(
+              'assets/icons/notification.svg',
+              height: 24,
+              width: 24,
+              fit: BoxFit.scaleDown,
+            ),
           ),
         ),
+        title: BlocBuilder<UserProfileCubit, IUserProfileState>(
+          builder: (context, state) {
+            if (state is UserProfileLoadingState) {
+              return AppLoadingWidget();
+            } else if (state is UserProfileSuccessState) {
+              return Text(
+                AppLocalizations.of(context)!.helloUser(state.profile.name),
+                style: AppTextStyles.bold28,
+              );
+            }
+            return SizedBox();
+          },
+        ),
+        subtitle: Text(AppLocalizations.of(context)!.welcomeToMega),
       ),
-      title: Text(
-        AppLocalizations.of(context)!.helloUser('donia'),
-        style: AppTextStyles.bold28,
-      ),
-      subtitle: Text(AppLocalizations.of(context)!.welcomeToMega),
     );
   }
 }

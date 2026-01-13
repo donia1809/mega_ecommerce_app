@@ -8,7 +8,7 @@ class GetProductByIdUseCase {
 
   const GetProductByIdUseCase({required this.productRepo});
 
-  Future<Either<Failure, ProductsEntity>> call(String id) {
+  Future<Either<Failure, ProductEntity>> call(String id) {
     return productRepo.getProductById(id);
   }
 }

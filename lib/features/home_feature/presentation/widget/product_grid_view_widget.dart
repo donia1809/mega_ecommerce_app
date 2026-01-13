@@ -6,9 +6,10 @@ import 'package:mega_ecommerce_app/features/product_feature/domain/entities/prod
 import 'package:responsive_framework/responsive_framework.dart';
 
 class ProductGridViewWidget extends StatelessWidget {
-  final List<ProductsEntity> products;
+  final List<ProductEntity> products;
+  final void Function(ProductEntity newProduct)? onToggleFavoriteSuccess;
 
-  const ProductGridViewWidget({super.key, required this.products});
+  const ProductGridViewWidget({super.key, required this.products, this.onToggleFavoriteSuccess});
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +43,16 @@ class ProductGridViewWidget extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         final product = products[index];
 
-        return ProductCard(
+        return ProductDetails(
           product: product,
+          onToggleFavoriteSuccess: onToggleFavoriteSuccess,
+          
+          // (newProduct) {
+          //   context.read<ProductsCubit>().updateProduct(newProduct: newProduct);
+          //   context.read<GetFavoriteCubit>().removeFavorite(
+          //     newProduct: newProduct,
+          //   );
+          // },
           onTap: () {
             context.navigateTo(
               AppRoutes.productDetailsScreen,

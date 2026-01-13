@@ -20,7 +20,7 @@ class ProductByIdFailureState extends IProductByIdState {
 class ProductByIdLoadingState extends IProductByIdState {}
 
 class ProductByIdSuccessState extends IProductByIdState {
-  final ProductsEntity getProductById;
+  final ProductEntity getProductById;
 
   const ProductByIdSuccessState({required this.getProductById});
 

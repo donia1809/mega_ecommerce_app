@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/features/favorite_feature/presentation/cubit/get_favorite/get_favorite_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/use_case/get_product_use_case.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/cubits/product/product_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/page/cart_screen.dart';
@@ -31,9 +32,21 @@ class _HomeState extends State<Home> {
       BlocProvider(
         create:
             (_) => sl<ProductsCubit>()..getAllProducts(ProductParams(page: 1)),
-        child: HomeScreen(), //userName: widget.userName
+        child: HomeScreen(), 
       ),
-      FavouriteScreen(),
+      MultiBlocProvider(
+        providers: [
+          // BlocProvider(
+          //   create:
+          //       (_) =>
+          //           sl<ProductsCubit>()..getAllProducts(ProductParams(page: 1)),
+          // ),
+          BlocProvider(
+            create: (context) => sl<GetFavoriteCubit>()..getFavorite(),
+          ),
+        ],
+        child: FavoriteScreen(),
+      ),
       CartScreen(),
       MoreScreen(),
     ]);

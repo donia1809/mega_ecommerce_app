@@ -1,7 +1,7 @@
 import 'review_model.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
 
-class ProductModel extends ProductsEntity {
+class ProductModel extends ProductEntity {
   const ProductModel({
     required super.id,
     required super.owner,
@@ -15,7 +15,7 @@ class ProductModel extends ProductsEntity {
     required super.rating,
     required super.numReviews,
     required super.favorites,
-    required super.reviews, 
+    required super.reviews,
     required super.createdAt,
     required super.updatedAt,
   });
@@ -34,7 +34,8 @@ class ProductModel extends ProductsEntity {
       rating: (json['rating'] as num).toDouble(),
       numReviews: json['numReviews'],
       favorites: List<String>.from(json['favorites'] ?? []),
-      reviews: (json['reviews'] as List<dynamic>?)
+      reviews:
+          (json['reviews'] as List<dynamic>?)
               ?.map((e) => ReviewModel.fromJson(e))
               .toList() ??
           [],

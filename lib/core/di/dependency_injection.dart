@@ -21,7 +21,7 @@ import 'package:mega_ecommerce_app/core/network/api_helper.dart';
 import 'package:mega_ecommerce_app/core/network/dio_api_helper.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/di/authentication_di.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/auto_login/auto_login_cubit.dart';
-import 'package:mega_ecommerce_app/features/favorite_feature/di/toogle_favourite_di.dart';
+import 'package:mega_ecommerce_app/features/favorite_feature/di/favourite_di.dart';
 import 'package:mega_ecommerce_app/features/product_feature/di/cart_di.dart';
 import 'package:mega_ecommerce_app/features/more_frature/di/menu_di.dart';
 import 'package:mega_ecommerce_app/features/user_featere/di/user_di.dart';
@@ -110,5 +110,5 @@ Future<void> init() async {
   productDi();
   menuDi();
   userDi();
-  toggleFavouriteDi();
+  favoriteDi();
 }

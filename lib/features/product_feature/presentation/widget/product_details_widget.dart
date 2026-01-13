@@ -4,7 +4,7 @@ import 'package:mega_ecommerce_app/features/product_feature/domain/entities/prod
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class ProductDetailsWidget extends StatelessWidget {
-  final ProductsEntity product;
+  final ProductEntity product;
 
   const ProductDetailsWidget({super.key, required this.product});
   @override
