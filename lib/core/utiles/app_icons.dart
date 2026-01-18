@@ -18,4 +18,8 @@ class AppIcons {
   static const String star = 'assets/icons/star.svg';
   static const String translate = 'assets/icons/translate.svg';
   static const String shieldTick = 'assets/icons/shield_tick.svg';
+  static const String arrowUp = 'assets/icons/arrow _up.svg';
+  static const String arrowDown = 'assets/icons/arrow _down.svg';
+  static const String delete = 'assets/icons/delete.svg';
+
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mega_ecommerce_app/common_widget/app_failure_widget.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
-import 'package:mega_ecommerce_app/core/theme/colors.dart';
-import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
+
 import 'package:mega_ecommerce_app/features/more_frature/presentation/cubits/privacy_policy/privacy_policy_cubit.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
@@ -20,10 +20,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
         body: BlocBuilder<PrivacyPolicyCubit, IPrivacyPolicyState>(
           builder: (context, state) {
             if (state is PrivacyPolicyFailureState) {
-              showSnackBar(
-                context: context,
-                color: AppColors.red,
-                message: state.failure.message,
+              return Center(
+                child: AppFailureWidget(
+                  message: state.failure.message,
+                  onPressed: context.read<PrivacyPolicyCubit>().gerPrivacyPolicy,
+                ),
               );
             }
             if (state is PrivacyPolicyLoadingState) {

@@ -62,8 +62,8 @@ class _LoginScreenState extends State<_LoginBody> {
                 message: state.failure.message,
               );
             case LoginSuccessState():
-            final user = state.data;
-            context.navigateTo(AppRoutes.home, arguments: user );
+              final user = state.data;
+              context.navigateTo(AppRoutes.home, arguments: user);
               break;
             default:
               break;
@@ -91,14 +91,16 @@ class _LoginScreenState extends State<_LoginBody> {
                     SizedBox(height: context.screenHeight * 0.03),
 
                     ////////////////////////////////////////////////////////////////////////////////
-                    PasswordTextFormField(password: passwordController,),
+                    PasswordTextFormField(password: passwordController),
                     SizedBox(height: context.screenHeight * 0.03),
 
                     ////////////////////////////////////////////////////////////////////////////////
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: _login,
+                        onPressed: () {
+                          context.navigateTo(AppRoutes.resetPasswordScreen);
+                        },
                         child: Text(
                           AppLocalizations.of(context)!.forgetPassword,
                           style: AppTextStyles.button18.copyWith(

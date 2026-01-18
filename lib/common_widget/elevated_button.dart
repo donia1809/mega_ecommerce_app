@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mega_ecommerce_app/core/theme/colors.dart';
 
 class CommonElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -14,12 +15,20 @@ class CommonElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading) {
-      return SizedBox(
-        height: 24,
-        width: 24,
-        child: CircularProgressIndicator(),);
-    }
-    return ElevatedButton(style: null, onPressed: onPressed, child: Text(text));
+    return ElevatedButton(
+      onPressed:isLoading?null: onPressed,
+      child: Builder(
+        builder: (context) {
+          if (isLoading) {
+            return SizedBox(
+              height: 16,
+              width: 16,
+              child: CircularProgressIndicator(color: AppColors.white,),
+            );
+          }
+          return Text(text);
+        },
+      ),
+    );
   }
 }

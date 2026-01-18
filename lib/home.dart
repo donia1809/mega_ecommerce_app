@@ -4,10 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/presentation/cubits/cart/cart_cubit.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/cubit/get_favorite/get_favorite_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/use_case/get_product_use_case.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/cubits/product/product_cubit.dart';
-import 'package:mega_ecommerce_app/features/product_feature/presentation/page/cart_screen.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/presentation/pages/cart_screen.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/page/favourite_screen.dart';
 import 'package:mega_ecommerce_app/features/home_feature/presentation/page/home_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/more_screen.dart';
@@ -32,22 +33,14 @@ class _HomeState extends State<Home> {
       BlocProvider(
         create:
             (_) => sl<ProductsCubit>()..getAllProducts(ProductParams(page: 1)),
-        child: HomeScreen(), 
+        child: HomeScreen(),
       ),
-      MultiBlocProvider(
-        providers: [
-          // BlocProvider(
-          //   create:
-          //       (_) =>
-          //           sl<ProductsCubit>()..getAllProducts(ProductParams(page: 1)),
-          // ),
-          BlocProvider(
-            create: (context) => sl<GetFavoriteCubit>()..getFavorite(),
-          ),
-        ],
+      BlocProvider(
+        create: (context) => sl<GetFavoriteCubit>()..getFavorite(),
+
         child: FavoriteScreen(),
       ),
-      CartScreen(),
+      BlocProvider(create: (context) => sl<CartCubit>()..getCart(), child: CartScreen()),
       MoreScreen(),
     ]);
   }

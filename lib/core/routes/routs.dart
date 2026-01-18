@@ -5,7 +5,7 @@ import 'package:mega_ecommerce_app/features/product_feature/presentation/page/ad
 import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/reset_pasword_screen.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/reset_email_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/signup/signup_screen.dart';
-import 'package:mega_ecommerce_app/features/product_feature/presentation/page/cart_screen.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/presentation/pages/cart_screen.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/page/all_products_screen.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/page/favourite_screen.dart';
 import 'package:mega_ecommerce_app/features/home_feature/presentation/page/home_screen.dart';
@@ -89,7 +89,7 @@ class AppRoutes {
         child = const FavoriteScreen();
 
       case cartScreen:
-        child = const CartScreen();
+        child =  CartScreen();
 
       case moreScreen:
         child = const MoreScreen();

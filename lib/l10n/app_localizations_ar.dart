@@ -39,7 +39,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pleaseEnterPassword => 'من فضلك ادخل كلمة المرور الخاصة بك';
 
   @override
-  String get pleaseEnterValidEmail => 'من ضلك ادخل بريد الكتروني صحيح';
+  String get pleaseEnterValidEmail => 'من فضلك ادخل بريد الكتروني صحيح';
 
   @override
   String get passwordMustBeAtLeast6Characters => 'كلمة المرور يجب ان تحتوي علي 6 ارقام';
@@ -246,4 +246,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pleaseEnterValidPassword => 'من ضلك ادخل كلمة مرور صحيحة';
+
+  @override
+  String get addToCart => 'اضافة الي السلة';
+
+  @override
+  String get addedToCartSuccessfully => 'تمت اضافة العنصر للسلة بنجاح';
+
+  @override
+  String get productRemovedFromCartSuccessfully => 'تم حذف المنتج من السلة بنجاح';
 }

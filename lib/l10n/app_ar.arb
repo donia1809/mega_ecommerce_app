@@ -17,7 +17,7 @@
   "enterYourPassword": "أدخل كلمة المرور",
   "forgetPassword": "نسيت كلمة المرور",
   "passwordMustBeAtLeast6Characters": "كلمة المرور يجب ان تحتوي علي 6 ارقام",
-  "pleaseEnterValidEmail" :"من ضلك ادخل بريد الكتروني صحيح",
+  "pleaseEnterValidEmail": "من فضلك ادخل بريد الكتروني صحيح",
   "pleaseEnterEmailAddress": "من فضلك ادخل البريد الالكتروني الخاص بك",
   "pleaseEnterPassword": "من فضلك ادخل كلمة المرور الخاصة بك",
   "alreadyHaveAccount": "لديك حساب بالفعل",
@@ -83,10 +83,13 @@
   "favourite": "المفضلة",
   "cart": "سلة التسوق",
   "next": "التالي",
-  "producDetails":"تفاصيل المنتج",
-  "description":"وصف المنتج",
-  "price":"السعر",
+  "producDetails": "تفاصيل المنتج",
+  "description": "وصف المنتج",
+  "price": "السعر",
   "lookGoodFeelGoogood": "مظهر جيد، شعور جيد",
   "createUniqueStyle": "اصنع أسلوبك الفريد والمميز وكن رائعًا كل يوم.",
-  "pleaseEnterValidPassword":"من ضلك ادخل كلمة مرور صحيحة"
+  "pleaseEnterValidPassword": "من ضلك ادخل كلمة مرور صحيحة",
+  "addToCart": "اضافة الي السلة",
+  "addedToCartSuccessfully": "تمت اضافة العنصر للسلة بنجاح",
+  "productRemovedFromCartSuccessfully": "تم حذف المنتج من السلة بنجاح"
 }

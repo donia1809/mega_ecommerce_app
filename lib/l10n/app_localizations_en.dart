@@ -246,4 +246,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pleaseEnterValidPassword => 'Please Enter Valid Password';
+
+  @override
+  String get addToCart => 'Add To Cart';
+
+  @override
+  String get addedToCartSuccessfully => 'Added To Cart Successfully';
+
+  @override
+  String get productRemovedFromCartSuccessfully => 'Product removed from cart successfully';
 }

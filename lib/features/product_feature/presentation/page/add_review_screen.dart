@@ -20,7 +20,7 @@ class AddReviewScreen extends StatefulWidget {
 
 class _AddReviewScreenState extends State<AddReviewScreen> {
   final TextEditingController _commentController = TextEditingController();
-  double _rating = 0;
+  final double _rating = 0;
 
   @override
   Widget build(BuildContext context) {

@@ -568,6 +568,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please Enter Valid Password'**
   String get pleaseEnterValidPassword;
+
+  /// No description provided for @addToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add To Cart'**
+  String get addToCart;
+
+  /// No description provided for @addedToCartSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Added To Cart Successfully'**
+  String get addedToCartSuccessfully;
+
+  /// No description provided for @productRemovedFromCartSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Product removed from cart successfully'**
+  String get productRemovedFromCartSuccessfully;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

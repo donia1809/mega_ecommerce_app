@@ -34,7 +34,6 @@ class HomeScreen extends StatelessWidget {
                 onPress:
                     () => context.navigateTo(
                       AppRoutes.allProductsScreen,
-                      // arguments: product,
                     ),
               ),
               SizedBox(height: 8),
@@ -45,25 +44,26 @@ class HomeScreen extends StatelessWidget {
                       return const Center(child: AppLoadingWidget());
                     }
 
-                    if (state is ProductsFailureState) {
+                    else if (state is ProductsFailureState) {
                       return AppFailureWidget(
                         message: state.failure.message,
                         onPressed: () {
                           context.read<ProductsCubit>().getAllProducts(
-                            ProductParams(
-                              page: 1,
-                            ),
+                            ProductParams(page: 1),
                           );
                         },
                       );
                     }
 
-                    if (state is ProductsSuccessState) {
-                      return ProductGridViewWidget(products: state.products,
-                      onToggleFavoriteSuccess: (newProduct) {
-            context.read<ProductsCubit>().updateProduct(newProduct: newProduct);
-            
-          },);
+                    else if (state is ProductsSuccessState) {
+                      return ProductGridViewWidget(
+                        products: state.products,
+                        onToggleFavoriteSuccess: (newProduct) {
+                          context.read<ProductsCubit>().updateProduct(
+                            newProduct: newProduct,
+                          );
+                        },
+                      );
                     }
                     return const SizedBox.shrink();
                   },
@@ -76,34 +76,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-// class ShowProductWidget extends StatelessWidget {
-//   const ShowProductWidget({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//       children: [
-//         Text(
-//           AppLocalizations.of(context)!.newArraivalProducts,
-//           textAlign: TextAlign.start,
-//           style: AppTextStyles.bold15,
-//         ),
-//         TextButton(
-//           onPressed: () {
-//             context.navigateTo(
-//               '/allProductsScreen',
-//               // arguments: product,
-//             );
-//           },
-//           child: Text(
-//             AppLocalizations.of(context)!.viewAll,
-//             textAlign: TextAlign.start,
-//             style: AppTextStyles.regular13,
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }

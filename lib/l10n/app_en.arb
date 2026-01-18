@@ -88,5 +88,8 @@
   "price":"Price",
   "lookGoodFeelGood": "Look Good, Feel Good",
   "createUniqueStyle": "Create your individual & unique style and look amazing everyday.",
-  "pleaseEnterValidPassword":"Please Enter Valid Password"
+  "pleaseEnterValidPassword":"Please Enter Valid Password",
+  "addToCart":"Add To Cart",
+  "addedToCartSuccessfully":"Added To Cart Successfully",
+  "productRemovedFromCartSuccessfully":"Product removed from cart successfully"
 }

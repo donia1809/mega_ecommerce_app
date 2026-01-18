@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mega_ecommerce_app/core/cubit/language_cubit.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
+import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/theme.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/auto_login/auto_login_cubit.dart';
 import 'package:mega_ecommerce_app/features/on_boarding_screen.dart';
@@ -60,30 +61,32 @@ class AppStart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AutoLoginCubit, IAutoLogintState>(
-      listener: (context, state) {
-        // if (state is AppAuthenticatedState) {
-        //   context.remove();
-        //   context.navigateTo(AppRoutes.home);
-        // } else if (state is AppUnAuthenticatedState) {
-        //   context.remove();
-        //   context.navigateTo(AppRoutes.loginScreen);
-        // } else if (state is AppGuestState) {
-        //   context.remove();
-        //   context.navigateTo(AppRoutes.loginScreen);
-        // }
-      },
-      builder: (context, state) {
-        switch (state) {
-          case AutoLoginInitial():
-            return Material(child: SizedBox());
-          case AppUnAuthenticatedState():
-            return OnBoardingScreen();
-          case AppAuthenticatedState():
-          case AppGuestState():
-            return const Home();
-        }
-      },
+    return Material(color: AppColors.white,
+      child: BlocConsumer<AutoLoginCubit, IAutoLogintState>(
+        listener: (context, state) {
+          // if (state is AppAuthenticatedState) {
+          //   context.remove();
+          //   context.navigateTo(AppRoutes.home);
+          // } else if (state is AppUnAuthenticatedState) {
+          //   context.remove();
+          //   context.navigateTo(AppRoutes.loginScreen);
+          // } else if (state is AppGuestState) {
+          //   context.remove();
+          //   context.navigateTo(AppRoutes.loginScreen);
+          // }
+        },
+        builder: (context, state) {
+          switch (state) {
+            case AutoLoginInitial():
+              return SizedBox();
+            case AppUnAuthenticatedState():
+              return OnBoardingScreen();
+            case AppAuthenticatedState():
+            case AppGuestState():
+              return const Home();
+          }
+        },
+      ),
     );
   }
 }

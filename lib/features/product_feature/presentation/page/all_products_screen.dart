@@ -62,7 +62,7 @@ class AllProductsScreen extends StatelessWidget {
                   childAspectRatio: 0.58,
                 ),
                 itemCount: products.length,
-                itemBuilder: (BuildContext context, int index) {
+                itemBuilder: (context, index) {
                   final product = products[index];
                   return ProductDetails(
                     product: product,

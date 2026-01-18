@@ -81,9 +81,8 @@ class CachedAuthenticatedDataSourceImpl
   @override
   Future<void> deleteToken() async {
     try {
-      final token = await _storage.read(key: _kTokenKey);
       await _storage.delete(key: _kTokenKey);
-      debugPrint('Token deleted: $token');
+      debugPrint('[Token deleted]: token deleted success');
     } catch (e) {
       debugPrint('Failed to delete token: $e');
     }

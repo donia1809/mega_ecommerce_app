@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mega_ecommerce_app/common_widget/elevated_button.dart';
 import 'package:mega_ecommerce_app/common_widget/row_widget.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
+import 'package:mega_ecommerce_app/core/theme/colors.dart';
+import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/domain/use_case/add_product_to_cart_use_case.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/presentation/cubits/add_to_cart/add_to_cart_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/cubits/product_by_id/product_by_id_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/widget/product_description_widget.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/widget/product_details_widget.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/widget/product_image_widget.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/widget/product_list_images_widget.dart';
+import 'package:mega_ecommerce_app/features/product_feature/presentation/widget/product_review_widget.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -18,8 +24,14 @@ class ProductDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<ProductByIdCubit>()..getProductsById(productId),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create:
+              (context) => sl<ProductByIdCubit>()..getProductsById(productId),
+        ),
+        BlocProvider(create: (context) => sl<AddToCartCubit>()),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.producDetails),
@@ -51,70 +63,73 @@ class ProductDetailsScreen extends StatelessWidget {
 
 class _ProductDetailsScreenBody extends StatelessWidget {
   final ProductEntity product;
-
+  
   const _ProductDetailsScreenBody({required this.product});
+
+  
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ProductImageWidget(product: product),
-        SizedBox(height: context.screenHeight * 0.01),
-        ProductDetailsWidget(product: product),
-        SizedBox(height: 16),
-        ProductListImages(product: product),
-        SizedBox(height: 16),
-        ProductDescriptionWidget(product: product),
-        SizedBox(height: 16),
-        RowWigdet(
-          text: AppLocalizations.of(context)!.reviews,
-          clicableText: AppLocalizations.of(context)!.viewAll,
-          onPress:
-              () => context.navigateTo(
-                AppRoutes.addReviewscreen,
-                arguments: product.id,
-              ),
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: product.reviews.length,
-            itemBuilder: (context, index) {
-              final review = product.reviews[index];
-              return SizedBox(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text(review.name),
-                        Text(review.rating.toString()),
-                      ],
-                    ),
-                    Text(
-                      review.comment,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                  ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ProductImageWidget(product: product),
+          SizedBox(height: context.screenHeight * 0.01),
+          ProductDetailsWidget(product: product),
+          SizedBox(height: 16),
+          ProductListImages(product: product),
+          SizedBox(height: 16),
+          ProductDescriptionWidget(product: product),
+          SizedBox(height: 16),
+          RowWigdet(
+            text: AppLocalizations.of(context)!.reviews,
+            clicableText: AppLocalizations.of(context)!.addReviow,
+            onPress:
+                () => context.navigateTo(
+                  AppRoutes.addReviewscreen,
+                  arguments: product.id,
                 ),
+          ),
+          ProductReviewWidget(product: product),
+          SizedBox(height: 16),
+          BlocConsumer<AddToCartCubit, IAddToCartState>(
+            listener: (context, state) {
+              if (state is AddToCartFailureState) {
+                showSnackBar(
+                  context: context,
+                  message: state.failure.message,
+                  color: AppColors.red,
+                );
+              } else if (state is AddToCartSuccessState) {
+                showSnackBar(
+                  context: context,
+                  message:
+                      AppLocalizations.of(context)!.addedToCartSuccessfully,
+                  color: AppColors.green,
+                );
+              }
+            },
+            builder: (context, state) {
+            
+              return CommonElevatedButton(
+                isLoading: state is AddToCartLoadingState,
+                onPressed: () {
+                  
+                  {context.read<AddToCartCubit>().addToCart(
+                    AddProductToCartParams(
+                      productId: product.id,
+                      quantity: 1,
+                    ),
+                  );}
+                },
+                text: AppLocalizations.of(context)!.addToCart,
               );
             },
           ),
-        ),
-        // ProductReviewWidget(),
-      ],
+          SizedBox(height: 16),
+        ],
+      ),
     );
   }
 }
-
-// class ProductReviewWidget extends StatelessWidget
-// { final 
-//   const ProductReviewWidget({super.key});
-
-  
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column();
-//   }
-
-// }
