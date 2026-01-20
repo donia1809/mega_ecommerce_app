@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mega_ecommerce_app/core/network/failures/failure.dart';
-import 'package:mega_ecommerce_app/features/cart_feature/domain/entity/cart_entity.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/domain/entity/cart_item_entity.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/domain/use_case/get_cart_use_case.dart';
 
 part 'cart_state.dart';
@@ -33,46 +33,13 @@ class CartCubit extends Cubit<ICartState> {
     }
   }
 
-  void increaseQuantity({required String cartId}) {
+  void updateQuantity({required String productId, required int newQuantity}) {
     final state = this.state;
     if (state is CartSuccessState) {
       final List<CartItemEntity> tempItems = [];
       for (CartItemEntity item in state.cartItems) {
-        if (cartId == item.id) {
-          tempItems.add(
-            CartItemEntity(
-              id: item.id,
-              productId: item.productId,
-              productName: item.productName,
-              image: item.image,
-              price: item.price,
-              quantity: item.quantity + 1,
-            ),
-          );
-        } else {
-          tempItems.add(item);
-        }
-      }
-      emit(state.copyWith(cartItems: tempItems));
-    }
-  }
-
-  void decreaseQuantity({required String cartId}) {
-    final state = this.state;
-    if (state is CartSuccessState) {
-      final List<CartItemEntity> tempItems = [];
-      for (CartItemEntity item in state.cartItems) {
-        if (item.quantity > 1 && cartId == item.id) {
-          tempItems.add(
-            CartItemEntity(
-              id: item.id,
-              productId: item.productId,
-              productName: item.productName,
-              image: item.image,
-              price: item.price,
-              quantity: item.quantity - 1,
-            ),
-          );
+        if (productId == item.productId) {
+          tempItems.add(item.copyWith(quantity: newQuantity));
         } else {
           tempItems.add(item);
         }

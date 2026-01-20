@@ -18,6 +18,8 @@ abstract class ProfileRepo {
     UpdateEmailParams params,
   );
 
+  Future<Either<Failure, UpdateProfileEntity>> resendEmailUpdateCode();
+
   Future<Either<Failure, UpdateProfileEntity>> verifyEmailUpdate(
     VerifyEmailUpdateParams params,
   );  

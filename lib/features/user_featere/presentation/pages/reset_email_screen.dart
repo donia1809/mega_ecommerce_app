@@ -6,6 +6,7 @@ import 'package:mega_ecommerce_app/common_widget/email_text_form_field.dart';
 import 'package:mega_ecommerce_app/common_widget/new_email_text_field.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
+import 'package:mega_ecommerce_app/core/routes/routs.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_email_ue_case.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/update_email/update_email_cubit.dart';
@@ -68,7 +69,7 @@ class _ResetEmailScreenBodyState extends State<_ResetEmailScreenBody> {
     return BlocListener<UpdateEmailCubit, IUpdateEmailState>(
       listener: (context, state) {
         if (state is UpdateEmailSuccessState) {
-          context.navigateBack();
+          context.navigateTo(AppRoutes.verifyEmailScreen);
         }
       },
       child: SingleChildScrollView(

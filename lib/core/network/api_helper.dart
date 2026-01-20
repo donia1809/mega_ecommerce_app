@@ -23,4 +23,10 @@ abstract class ApiHelper {
     Map<String, dynamic>? body,
     Map<String, String>? headers,
   });
+
+  Future<dynamic> patchRequest({
+    required String endPoint,
+    Map<String, dynamic>? body,
+    Map<String, String>? headers,
+  });
 }

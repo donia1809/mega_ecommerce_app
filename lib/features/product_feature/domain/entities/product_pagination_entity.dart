@@ -5,13 +5,15 @@ class ProductsPaginationEntity extends Equatable {
   final List<ProductEntity> products;
   final int page;
   final int pages;
+  final int total;
 
   const ProductsPaginationEntity({
+    required this.total,
     required this.products,
     required this.page,
     required this.pages,
   });
 
   @override
-  List<Object?> get props => [products, page, pages];
+  List<Object?> get props => [products, page, pages,total];
 }

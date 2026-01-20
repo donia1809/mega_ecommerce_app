@@ -1,9 +1,10 @@
 import 'package:equatable/equatable.dart';
+import 'package:mega_ecommerce_app/features/product_feature/domain/entities/owner_entity.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/review_entity.dart';
 
 class ProductEntity extends Equatable {
   final String id;
-  final String owner;
+  final OwnerEntity owner;
   final String name;
   final String description;
   final double price;
@@ -13,7 +14,7 @@ class ProductEntity extends Equatable {
   final int countInStock;
   final double rating;
   final int numReviews;
-  final List<String> favorites;
+  final bool favorites;
   final List<ReviewEntity> reviews;
   final DateTime createdAt;
   final DateTime updatedAt;
@@ -36,12 +37,12 @@ class ProductEntity extends Equatable {
     required this.updatedAt,
   });
 
-  bool isFavorite(String currentUserId) {
-    final bool isFavorite = favorites.contains(currentUserId);
+  bool isFavorite() {
+    final bool isFavorite = favorites;
     return isFavorite;
   }
 
-  ProductEntity copyWith({final List<String>? favorites}) {
+  ProductEntity copyWith({final bool? favorites}) {
     return ProductEntity(
       id: id,
       favorites: favorites ?? this.favorites,
@@ -61,14 +62,14 @@ class ProductEntity extends Equatable {
     );
   }
 
-  ProductEntity toggleFavorite(String currentUserId) {
-    final List<String> tempFavoritesUsersIds = favorites;
-    if (isFavorite(currentUserId)) {
-      tempFavoritesUsersIds.remove(currentUserId);
-    } else {
-      tempFavoritesUsersIds.add(currentUserId);
-    }
-    return copyWith(favorites: tempFavoritesUsersIds);
+  ProductEntity toggleFavorite() {
+    // final List<String> tempFavoritesUsersIds = favorites;
+    // if (isFavorite(currentUserId)) {
+    //   tempFavoritesUsersIds.remove(currentUserId);
+    // } else {
+    //   tempFavoritesUsersIds.add(currentUserId);
+    // }
+    return copyWith(favorites: !favorites);
   }
 
   @override

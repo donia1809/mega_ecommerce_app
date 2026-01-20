@@ -58,7 +58,7 @@ class ProductImageWidget extends StatelessWidget {
                               );
                             } else if (state is ToggleFavoriteSuccessState) {
                               onToggleFavoriteSuccess ??
-                                  (product.toggleFavorite(user.id));
+                                  (product.toggleFavorite());
                             }
                           },
                           builder: (context, state) {
@@ -81,7 +81,7 @@ class ProductImageWidget extends StatelessWidget {
                                         child: AppLoadingWidget(),
                                       )
                                       : SvgPicture.asset(
-                                        product.isFavorite(user.id)
+                                        product.isFavorite()
                                             ? 'assets/icons/fav.svg'
                                             : 'assets/icons/favourite.svg',
                                       ),

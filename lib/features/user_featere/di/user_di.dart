@@ -6,10 +6,12 @@ import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/get_pr
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_email_ue_case.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_password_use_case.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_profile_use_case.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/verify_email_update_use_case.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/update_email/update_email_cubit.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/update_password/update_password_cubit.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/update_profile/update_profile_cubit.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/user_profile/user_profile_cubit.dart';
+import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/verify_email_update/verify_email_update_cubit.dart';
 
 Future<void> userDi() async {
   // Cubit
@@ -17,6 +19,8 @@ Future<void> userDi() async {
   sl.registerFactory(() => UpdateProfileCubit(sl()));
   sl.registerFactory(() => UpdateEmailCubit(sl()));
   sl.registerFactory(() => UpdatePasswordCubit(sl()));
+  sl.registerFactory(() => VerifyEmailUpdateCubit(sl()));
+
 
   // UseCase
   sl.registerLazySingleton(() => GetUserProfileUseCase(userRepo: sl()));
@@ -24,6 +28,9 @@ Future<void> userDi() async {
   sl.registerLazySingleton(() => UpdateEmailUseCase(updateEmailRepo: sl()));
   sl.registerLazySingleton(
     () => UpdatePasswordUseCase(updatePasswordRepo: sl()),
+  );
+  sl.registerLazySingleton(
+    () => VerifyEmailUpdateUseCase(verifyEmailRepo: sl()),
   );
 
   // Repository

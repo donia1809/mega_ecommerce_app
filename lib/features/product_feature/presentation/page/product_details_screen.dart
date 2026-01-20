@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mega_ecommerce_app/common_widget/app_failure_widget.dart';
 import 'package:mega_ecommerce_app/common_widget/elevated_button.dart';
 import 'package:mega_ecommerce_app/common_widget/row_widget.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
@@ -63,10 +64,8 @@ class ProductDetailsScreen extends StatelessWidget {
 
 class _ProductDetailsScreenBody extends StatelessWidget {
   final ProductEntity product;
-  
-  const _ProductDetailsScreenBody({required this.product});
 
-  
+  const _ProductDetailsScreenBody({required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +94,7 @@ class _ProductDetailsScreenBody extends StatelessWidget {
           SizedBox(height: 16),
           BlocConsumer<AddToCartCubit, IAddToCartState>(
             listener: (context, state) {
-              if (state is AddToCartFailureState) {
-                showSnackBar(
-                  context: context,
-                  message: state.failure.message,
-                  color: AppColors.red,
-                );
-              } else if (state is AddToCartSuccessState) {
+              if (state is AddToCartSuccessState) {
                 showSnackBar(
                   context: context,
                   message:
@@ -111,17 +104,27 @@ class _ProductDetailsScreenBody extends StatelessWidget {
               }
             },
             builder: (context, state) {
-            
+              if (state is AddToCartFailureState) {
+                return AppFailureWidget(
+                  message: state.failure.message,
+                  onPressed: () {
+                    context.read<ProductByIdCubit>().getProductsById(
+                      product.id,
+                    );
+                  },
+                );
+              }
               return CommonElevatedButton(
                 isLoading: state is AddToCartLoadingState,
                 onPressed: () {
-                  
-                  {context.read<AddToCartCubit>().addToCart(
-                    AddProductToCartParams(
-                      productId: product.id,
-                      quantity: 1,
-                    ),
-                  );}
+                  {
+                    context.read<AddToCartCubit>().addToCart(
+                      AddProductToCartParams(
+                        productId: product.id,
+                        quantity: 1,
+                      ),
+                    );
+                  }
                 },
                 text: AppLocalizations.of(context)!.addToCart,
               );

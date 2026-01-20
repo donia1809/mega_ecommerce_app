@@ -4,12 +4,14 @@ import 'package:mega_ecommerce_app/features/user_featere/data/model/user_profile
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_email_ue_case.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_password_use_case.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_profile_use_case.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/verify_email_update_use_case.dart';
 
 abstract class UserProfileDataSource {
   Future<UserProfileModel> getProfile();
   Future<UserProfileModel> updateProfile(UpdateProfileParams params);
   Future<UpdateProfileModel> updateEmail(UpdateEmailParams params);
-  Future<UpdateProfileModel> veriftEmailUpdate();
+  Future<UpdateProfileModel> resendEmailUpdateCode();
+  Future<UpdateProfileModel> veriftEmailUpdate(VerifyEmailUpdateParams params);
   Future<UpdateProfileModel> updatePassword(UpdatePasswordParams params);
 }
 
@@ -43,9 +45,10 @@ class UserProfileDataSourceImpl implements UserProfileDataSource {
   }
 
   @override
-  Future<UpdateProfileModel> veriftEmailUpdate() async {
+  Future<UpdateProfileModel> veriftEmailUpdate(VerifyEmailUpdateParams params) async {
     final response = await apiHelper.postRequest(
       endPoint: '/api/users/verify-email-update',
+      body: params.toMap
     );
     return UpdateProfileModel.fromJson(response);
   }
@@ -54,10 +57,16 @@ class UserProfileDataSourceImpl implements UserProfileDataSource {
   Future<UpdateProfileModel> updatePassword(UpdatePasswordParams params) async {
     final response = await apiHelper.putRequest(
       endPoint: '/api/users/update-password',
-      body: params.toMap
+      body: params.toMap,
     );
     return UpdateProfileModel.fromJson(response);
   }
-
- 
+  
+  @override
+  Future<UpdateProfileModel> resendEmailUpdateCode() async {
+    final response = await apiHelper.postRequest(
+      endPoint: '/api/users/update-email/resend',
+    );
+    return UpdateProfileModel.fromJson(response);
+  }
 }

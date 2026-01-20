@@ -90,6 +90,27 @@ class DioApiHelper implements ApiHelper {
     }
   }
 
+  //////////////////// patch ////////////////////
+
+  @override
+  Future<dynamic> patchRequest({
+    required String endPoint,
+    Map<String, dynamic>? body,
+    Map<String, String>? headers,
+  }) async {
+    try {
+      await _addTokenToHeaders();
+      final response = await _dio.patch(
+        endPoint,
+        data: body,
+        options: Options(headers: headers),
+      );
+      return response.data;
+    } catch (e) {
+      throw ExceptionsHandler(object: e).map;
+    }
+  }
+
   //////////////////// delete ////////////////////
   @override
   Future<dynamic> deleteRequest({

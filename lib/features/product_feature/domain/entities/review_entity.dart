@@ -2,21 +2,31 @@ import 'package:equatable/equatable.dart';
 
 class ReviewEntity extends Equatable {
   final String id;
+  final String userId;
   final String userName;
-  final String name;
+  final String userImage;
   final double rating;
   final String comment;
-  final String userImage;
+  final DateTime date;
 
   const ReviewEntity({
     required this.id,
+    required this.userId,
     required this.userName,
-    required this.name,
+    required this.userImage,
     required this.rating,
     required this.comment,
-    required this.userImage
+    required this.date,
   });
 
   @override
-  List<Object?> get props => [id, userName, name, rating, comment,userImage];
+  List<Object?> get props => [
+    id,
+    userId,
+    userName,
+    userImage,
+    rating,
+    comment,
+    date,
+  ];
 }

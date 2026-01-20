@@ -4,10 +4,12 @@ import 'package:mega_ecommerce_app/core/domain/use_cases/cahed_seer_use_cases/sa
 import 'package:mega_ecommerce_app/features/auth_feature/data/data_source/auth_remote_data_source.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/data/repo_impl/auth_repo_impl.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/domain/repo/auth_repo.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/domain/use_case/forget_password_use_case.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/domain/use_case/log_out_use_case.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/domain/use_case/login_use_case.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/domain/use_case/signup_use_cases.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/domain/use_case/verify_account_use_case.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/forget_password/forget_password_cubit.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/login/login_cubit.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/logout/logout_cubit.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/signup/signup_cubit.dart';
@@ -39,19 +41,23 @@ Future<void> initAuthenticationDi() async {
     ),
   );
 
-  sl.registerFactory(
-    () => LogoutCubit(     
-      sl<LogoutUseCase>()
-    ),
-  );
+  sl.registerFactory(() => LogoutCubit(sl<LogoutUseCase>()));
 
+  sl.registerFactory(() => ForgetPasswordCubit(sl()));
 
   //!useCase
 
   sl.registerLazySingleton(() => LoginUseCase(authRepo: sl()));
   sl.registerLazySingleton(() => SignupUseCase(authRepo: sl()));
   sl.registerLazySingleton(() => VerifyAccountUseCase(authRepo: sl()));
-  sl.registerLazySingleton(() => LogoutUseCase(authRepo: sl(),deleteTokenUseCase:sl(),deleteUserUseCase: sl()));
+  sl.registerLazySingleton(
+    () => LogoutUseCase(
+      authRepo: sl(),
+      deleteTokenUseCase: sl(),
+      deleteUserUseCase: sl(),
+    ),
+  );
+  sl.registerLazySingleton(() => ForgetPasswordUseCase(authRepo: sl()));
 
   //!repo
   sl.registerLazySingleton<AuthRepo>(

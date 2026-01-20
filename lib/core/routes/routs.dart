@@ -17,6 +17,7 @@ import 'package:mega_ecommerce_app/features/more_frature/presentation/page/more_
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/privacy_policy_screen.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/profile_details_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/terms_and_conditions_screen.dart';
+import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/verify_email_screen.dart';
 import 'package:mega_ecommerce_app/home.dart';
 import 'package:mega_ecommerce_app/features/on_boarding_screen.dart';
 import 'package:mega_ecommerce_app/mega_ecommerce_app.dart';
@@ -44,6 +45,7 @@ class AppRoutes {
   static const String aboutAppScreen = '/aboutAppScreen';
   static const String privacyPolicyscreen = '/privacyPolicyscreen';
   static const String addReviewscreen = '/addReviewscreen';
+  static const String verifyEmailScreen = '/verifyEmailScreen';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     final Widget child;
@@ -89,7 +91,7 @@ class AppRoutes {
         child = const FavoriteScreen();
 
       case cartScreen:
-        child =  CartScreen();
+        child = CartScreen();
 
       case moreScreen:
         child = const MoreScreen();
@@ -112,6 +114,10 @@ class AppRoutes {
       case addReviewscreen:
         final productId = settings.arguments as String;
         child = AddReviewScreen(productId: productId);
+      case verifyEmailScreen:
+        child = const VerifyEmailScreen();
+
+      
 
       default:
         child = const OnBoardingScreen();

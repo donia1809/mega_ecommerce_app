@@ -52,7 +52,7 @@ class UserProfileRepoImpl implements ProfileRepo {
   @override
   Future<Either<Failure, UpdateProfileEntity>> verifyEmailUpdate(VerifyEmailUpdateParams params) async {
     try {
-      final result = await userProfileRemoteDataSource.veriftEmailUpdate();
+      final result = await userProfileRemoteDataSource.veriftEmailUpdate(params);
       return Right(result);
     } catch (e) {
       return Left(ExceptionsHandler(object: e).toFailure);
@@ -63,6 +63,16 @@ class UserProfileRepoImpl implements ProfileRepo {
   Future<Either<Failure, UpdateProfileEntity>> updatePassword(UpdatePasswordParams params) async {
     try {
       final result = await userProfileRemoteDataSource.updatePassword(params);
+      return Right(result);
+    } catch (e) {
+      return Left(ExceptionsHandler(object: e).toFailure);
+    }
+  }
+  
+  @override
+  Future<Either<Failure, UpdateProfileEntity>> resendEmailUpdateCode() async {
+    try {
+      final result = await userProfileRemoteDataSource.resendEmailUpdateCode();
       return Right(result);
     } catch (e) {
       return Left(ExceptionsHandler(object: e).toFailure);

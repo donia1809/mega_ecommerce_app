@@ -20,7 +20,7 @@ class GetFavoriteCubit extends Cubit<IGetFavoriteState> {
     );
   }
 
-  void removeFavorite({required ProductEntity newProduct})  {
+  void removeFavorite({required ProductEntity newProduct}) {
     final state = this.state;
     if (state is GetFavoriteSeccessState) {
       final List<ProductEntity> tempProducts = [];
@@ -31,6 +31,13 @@ class GetFavoriteCubit extends Cubit<IGetFavoriteState> {
         }
       }
       emit(state.copyWith(products: tempProducts));
+    }
+  }
+
+  @override
+  void emit(IGetFavoriteState state) {
+    if (!isClosed) {
+      super.emit(state);
     }
   }
 }

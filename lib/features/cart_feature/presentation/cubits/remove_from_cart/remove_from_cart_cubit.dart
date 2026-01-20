@@ -9,9 +9,9 @@ class RemoveFromCartCubit extends Cubit<IRemoveFromCartState> {
   final RemoveFromCartUseCase _removeFromCartUseCase;
   RemoveFromCartCubit(this._removeFromCartUseCase)
     : super(RemoveFromCartInitialState());
-  void removeFromCart({required String cartId}) async {
+  void removeFromCart({required String productId}) async {
     emit(RemoveFromCartLoadingState());
-    final result = await _removeFromCartUseCase(cartId);
+    final result = await _removeFromCartUseCase(productId);
     result.fold(
       (failure) => emit(RemoveFromCartFailursState(failure: failure)),
       (_) => emit(RemoveFromCartSuccessState()),

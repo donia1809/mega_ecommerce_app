@@ -1,3 +1,5 @@
+import 'package:mega_ecommerce_app/features/product_feature/data/model/owner_model.dart';
+
 import 'review_model.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
 
@@ -23,7 +25,7 @@ class ProductModel extends ProductEntity {
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       id: json['_id'],
-      owner: json['owner'],
+      owner: OwnerModel.fromJson(json['owner']),
       name: json['name'],
       description: json['description'],
       price: (json['price'] as num).toDouble(),
@@ -31,14 +33,14 @@ class ProductModel extends ProductEntity {
       images: List<String>.from(json['images'] ?? []),
       category: json['category'],
       countInStock: json['countInStock'],
-      rating: (json['rating'] as num).toDouble(),
+      rating: (json['rating'] ).toDouble(),
       numReviews: json['numReviews'],
-      favorites: List<String>.from(json['favorites'] ?? []),
+      favorites: json['isFavorite'] ?? false,
       reviews:
-          (json['reviews'] as List<dynamic>?)
-              ?.map((e) => ReviewModel.fromJson(e))
-              .toList() ??
-          [],
+          List.from(json['reviews'] ??[])
+              .map((e) => ReviewModel.fromJson(e))
+              .toList(),
+          
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
     );

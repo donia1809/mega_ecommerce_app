@@ -7,7 +7,7 @@ import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
-import 'package:mega_ecommerce_app/features/cart_feature/domain/entity/cart_entity.dart';
+import 'package:mega_ecommerce_app/features/cart_feature/domain/entity/cart_item_entity.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/presentation/cubits/remove_from_cart/remove_from_cart_cubit.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/presentation/widgets/counter_widget.dart';
 import '../../../../core/utiles/app_icons.dart';
@@ -62,7 +62,19 @@ class CartListViewWidget extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Expanded(child: CounterWidget(cart: item)),
+                            Expanded(
+                              child: CounterWidget(
+                                cartItem: item,
+                                // onChangeValue: (changeValue) {
+                                //   context.read<CartCubit>().increaseQuantity(
+                                //     cartId: changeValue.quantity.toString(),
+                                //   );
+                                // context.read<CartCubit>().decreaseQuantity(
+                                //   cartId: changeValue.quantity.toString(),
+                                // );
+                                //  },
+                              ),
+                            ),
                             BlocProvider(
                               create: (context) => sl<RemoveFromCartCubit>(),
 
@@ -97,7 +109,7 @@ class CartListViewWidget extends StatelessWidget {
                                               context
                                                   .read<RemoveFromCartCubit>()
                                                   .removeFromCart(
-                                                    cartId: item.id,
+                                                    productId: item.id,
                                                   );
                                             },
                                   );

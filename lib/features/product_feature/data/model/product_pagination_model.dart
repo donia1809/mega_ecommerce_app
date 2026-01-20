@@ -6,6 +6,7 @@ class ProductsPaginationModel extends ProductsPaginationEntity {
     required super.products,
     required super.page,
     required super.pages,
+    required super.total,
   });
 
   factory ProductsPaginationModel.fromJson(Map<String, dynamic> map) {
@@ -15,6 +16,7 @@ class ProductsPaginationModel extends ProductsPaginationEntity {
       ),
       page: map['page'],
       pages: map['pages'],
+      total: map['total'],
     );
   }
 }

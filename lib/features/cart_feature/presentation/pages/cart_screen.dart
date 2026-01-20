@@ -58,38 +58,3 @@ class CartScreen extends StatelessWidget {
   }
 }
 
-// class _CartScreenBody extends StatelessWidget {
-//   final List<CartItemEntity> cartItem;
-//   final double totalPrice;
-//   const _CartScreenBody({required this.cartItem, required this.totalPrice});
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Padding(
-//         padding: EdgeInsets.only(top: 24, left: 16, right: 16),
-//         child: Column(
-//           children: [
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Text(AppLocalizations.of(context)!.totalPrice),
-
-//                 Text(totalPrice.toString()),
-//               ],
-//             ),
-//             SizedBox(height: 16),
-//             Expanded(
-//               child: CartListViewWidget(
-//                 onRemoveFromCart: (newCartItem) {
-//                   context.read<CartCubit>().updateCartAfterRemoveCartItem(newCartItem: newCartItem);
-//                 },
-//                 cartItem: cartItem,
-//                 totalPrice: totalPrice,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

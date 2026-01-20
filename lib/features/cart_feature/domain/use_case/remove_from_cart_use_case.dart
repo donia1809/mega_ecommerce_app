@@ -7,7 +7,7 @@ class RemoveFromCartUseCase {
   final CartRepository removeFromCartRepo;
 
   RemoveFromCartUseCase({required this.removeFromCartRepo});
-  Future<Either<Failure, CartEntity>> call(String cartId) async {
-    return await removeFromCartRepo.removeFromCart(cartId);
+  Future<Either<Failure, CartEntity>> call(String productId) async {
+    return await removeFromCartRepo.removeFromCart(productId);
   }
 }

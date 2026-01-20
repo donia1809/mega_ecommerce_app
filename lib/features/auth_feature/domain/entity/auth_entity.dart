@@ -16,19 +16,8 @@ class AuthEntity extends Equatable {
     required this.avatar,
     required this.role,
     required this.isVerified,
-   
   });
 
   @override
-  List<Object?> get props => [
-    id,
-    name,
-    email,
-    token,
-    avatar,
-    role,
-    isVerified,
-  ];
+  List<Object?> get props => [id, name, email, token, avatar, role, isVerified];
 }
-
-

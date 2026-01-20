@@ -3,22 +3,24 @@ import '../../domain/entities/review_entity.dart';
 class ReviewModel extends ReviewEntity {
   const ReviewModel({
     required super.id,
+    required super.userId,
     required super.userName,
-    required super.name,
+    required super.userImage,
     required super.rating,
     required super.comment,
-    required super.userImage,
+    required super.date,
   });
 
   factory ReviewModel.fromJson(Map<String, dynamic> json) {
-    final userData = json['user'];
+    final user = json['user'];
     return ReviewModel(
-      id: json['_id'],
-      userName: userData is Map ? (userData['name'] ?? '') : '',
-      name: json['name'],
-      rating: double.tryParse(json['rating'].toString()) ?? 0,
+      id: json['id'],
+      userName: user['name'] ?? '',
+      rating: (json['rating'] as num?)?.toDouble() ?? 0.0, 
       comment: json['comment'],
-      userImage:userData is Map ? (userData['avatar'] ?? '') : '',
+      userImage: user['image'] ?? '',
+      userId: user['id'] ?? '',
+      date: DateTime.tryParse(json['date'] ?? '') ?? DateTime.now(),
     );
   }
 }
