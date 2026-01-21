@@ -56,7 +56,7 @@
   "descripeYourExperience": "صف تجربتك",
   "submitReview": "إرسال التقييم",
   "notificatios": "الإشعارات",
-  "totalPrice": "السعر الإجمالي",
+  "totalPrice": "السعر الكلي :",
   "checkOut": "إتمام الشراء",
   "orderConfirmed": "تم تأكيد الطلب",
   "yourOrderHasBeenConfirmedWeWillSendYouConfirmationEmailShortly": "تم تأكيد طلبك، وسيتم إرسال رسالة تأكيد على بريدك الإلكتروني قريباً.",
@@ -93,5 +93,10 @@
   "addedToCartSuccessfully": "تمت اضافة العنصر للسلة بنجاح",
   "productRemovedFromCartSuccessfully": "تم حذف المنتج من السلة بنجاح",
   "myOrders":"طلباتي",
-  "orderDetails":"تفاصيل الطلب"
+  "orderDetails":"تفاصيل الطلب",
+  "orderNum":"رقم الاوردر :",
+  "status":"الحالة :",
+  "count":"الكمية :",
+  "storeOwner":"صاحب المتجر :",
+  "product":"المنتج :"
 }

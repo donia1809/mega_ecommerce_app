@@ -598,6 +598,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Order Details'**
   String get orderDetails;
+
+  /// No description provided for @orderNum.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Num: '**
+  String get orderNum;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status: '**
+  String get status;
+
+  /// No description provided for @count.
+  ///
+  /// In en, this message translates to:
+  /// **'Count: '**
+  String get count;
+
+  /// No description provided for @storeOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Store Owner: '**
+  String get storeOwner;
+
+  /// No description provided for @product.
+  ///
+  /// In en, this message translates to:
+  /// **'Products: '**
+  String get product;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

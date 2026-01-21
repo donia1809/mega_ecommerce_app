@@ -46,7 +46,7 @@ class MegaEcommerceApp extends StatelessWidget {
               supportedLocales: AppLocalizations.supportedLocales,
               theme: AppTheme.lightTheme,
               onGenerateRoute: AppRoutes.generateRoutes,
-              initialRoute:AppRoutes.home //AppRoutes.appStart,
+              initialRoute:AppRoutes.appStart,
             );
           },
         ),

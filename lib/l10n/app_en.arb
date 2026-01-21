@@ -93,5 +93,11 @@
   "addedToCartSuccessfully":"Added To Cart Successfully",
   "productRemovedFromCartSuccessfully":"Product removed from cart successfully",
   "myOrders":"My Orders",
-  "orderDetails":"Order Details"
+  "orderDetails":"Order Details",
+  "orderNum":"Order Num: ",
+  "status":"Status: ",
+  "count":"Count: ",
+  "storeOwner":"Store Owner: ",
+  "product":"Products: "
+
 }

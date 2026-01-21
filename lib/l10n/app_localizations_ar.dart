@@ -149,7 +149,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get notificatios => 'الإشعارات';
 
   @override
-  String get totalPrice => 'السعر الإجمالي';
+  String get totalPrice => 'السعر الكلي :';
 
   @override
   String get checkOut => 'إتمام الشراء';
@@ -261,4 +261,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get orderDetails => 'تفاصيل الطلب';
+
+  @override
+  String get orderNum => 'رقم الاوردر :';
+
+  @override
+  String get status => 'الحالة :';
+
+  @override
+  String get count => 'الكمية :';
+
+  @override
+  String get storeOwner => 'صاحب المتجر :';
+
+  @override
+  String get product => 'المنتج :';
 }

@@ -42,14 +42,18 @@ class OrderDetailsScreen extends StatelessWidget {
                 final order = state.order;
                 final orderItem = order.orderItems;
                 return ListView(
-                  
                   children: [
                     CommonContainerWidget(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('order num:'),
-                          Expanded(child: Text(order.itemsPrice.toString(),textAlign: TextAlign.end)),
+                          Text(AppLocalizations.of(context)!.orderNum),
+                          Expanded(
+                            child: Text(
+                              order.itemsPrice.toString(),
+                              textAlign: TextAlign.end,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -60,7 +64,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('total price:'),
+                          Text(AppLocalizations.of(context)!.totalPrice),
                           Flexible(child: Text(order.totalPrice.toString())),
                         ],
                       ),
@@ -72,7 +76,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('status:'),
+                          Text(AppLocalizations.of(context)!.status),
                           Flexible(child: Text(order.status.value)),
                         ],
                       ),
@@ -80,7 +84,7 @@ class OrderDetailsScreen extends StatelessWidget {
 
                     SizedBox(height: 16),
 
-                    Text('Store Owner:'),
+                    Text(AppLocalizations.of(context)!.storeOwner),
 
                     SizedBox(height: 8),
 
@@ -97,7 +101,7 @@ class OrderDetailsScreen extends StatelessWidget {
 
                     SizedBox(height: 16),
 
-                    Text('Products:'),
+                    Text(AppLocalizations.of(context)!.product),
 
                     SizedBox(height: 8),
 
@@ -143,7 +147,11 @@ class OrderDetailsScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Flexible(child: Text('count: \n ${orderItems.quantity}')),
+                              Flexible(
+                                child: Text(
+                                  '${AppLocalizations.of(context)!.count}:\n ${orderItems.quantity}',
+                                ),
+                              ),
                             ],
                           ),
                         );
