@@ -586,6 +586,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Product removed from cart successfully'**
   String get productRemovedFromCartSuccessfully;
+
+  /// No description provided for @myOrders.
+  ///
+  /// In en, this message translates to:
+  /// **'My Orders'**
+  String get myOrders;
+
+  /// No description provided for @orderDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Details'**
+  String get orderDetails;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

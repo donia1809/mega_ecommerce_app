@@ -24,4 +24,10 @@ class VerifyAccountCubit extends Cubit<IVerifyAccountState> {
     });
     // emit(VerifyAccountInitialState());
   }
+  @override
+  void emit(IVerifyAccountState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

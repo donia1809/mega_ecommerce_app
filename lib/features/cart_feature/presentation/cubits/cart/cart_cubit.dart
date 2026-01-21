@@ -47,4 +47,11 @@ class CartCubit extends Cubit<ICartState> {
       emit(state.copyWith(cartItems: tempItems));
     }
   }
+
+  @override
+  void emit(ICartState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

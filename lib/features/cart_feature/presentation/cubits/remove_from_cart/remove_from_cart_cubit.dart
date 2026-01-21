@@ -17,4 +17,10 @@ class RemoveFromCartCubit extends Cubit<IRemoveFromCartState> {
       (_) => emit(RemoveFromCartSuccessState()),
     );
   }
+  @override
+  void emit(IRemoveFromCartState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

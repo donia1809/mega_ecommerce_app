@@ -18,6 +18,12 @@ class PrivacyPolicyCubit extends Cubit<IPrivacyPolicyState> {
       (policy) => emit(PrivacyPolicySuccessState(policy: policy)),
     );
   }
+  @override
+  void emit(IPrivacyPolicyState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }
 
 

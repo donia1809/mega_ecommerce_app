@@ -18,4 +18,10 @@ class ForgetPasswordCubit extends Cubit<IForgetPasswordState> {
       (_) => emit(ForgetPasswordSuccessState()),
     );
   }
+  @override
+  void emit(IForgetPasswordState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

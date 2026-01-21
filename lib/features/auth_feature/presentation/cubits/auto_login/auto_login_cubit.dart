@@ -61,4 +61,11 @@ class AutoLoginCubit extends Cubit<IAutoLogintState> {
       return false;
     }
   }
+
+  @override
+  void emit(IAutoLogintState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

@@ -18,4 +18,10 @@ class AboutAppCubit extends Cubit<IAboutAppState> {
       (about) => emit(AboutAppSuccessState(about: about)),
     );
   }
+  @override
+  void emit(IAboutAppState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

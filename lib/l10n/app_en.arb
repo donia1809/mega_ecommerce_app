@@ -91,5 +91,7 @@
   "pleaseEnterValidPassword":"Please Enter Valid Password",
   "addToCart":"Add To Cart",
   "addedToCartSuccessfully":"Added To Cart Successfully",
-  "productRemovedFromCartSuccessfully":"Product removed from cart successfully"
+  "productRemovedFromCartSuccessfully":"Product removed from cart successfully",
+  "myOrders":"My Orders",
+  "orderDetails":"Order Details"
 }

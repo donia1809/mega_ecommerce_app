@@ -38,4 +38,10 @@ class LoginCubit extends Cubit<ILoginState> {
     });
     // emit(LoginInitalState());
   }
+  @override
+  void emit(ILoginState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

@@ -38,4 +38,10 @@ class ProductsCubit extends Cubit<IProductsState> {
       emit(state.copyWith(products: tempProducts));
     }
   }
+  @override
+  void emit(IProductsState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

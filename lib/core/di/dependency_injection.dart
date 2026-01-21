@@ -23,6 +23,7 @@ import 'package:mega_ecommerce_app/features/auth_feature/di/authentication_di.da
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/auto_login/auto_login_cubit.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/di/cart_di.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/di/favourite_di.dart';
+import 'package:mega_ecommerce_app/features/orders_feature/di/order_di.dart';
 import 'package:mega_ecommerce_app/features/product_feature/di/product_di.dart';
 import 'package:mega_ecommerce_app/features/more_frature/di/menu_di.dart';
 import 'package:mega_ecommerce_app/features/user_featere/di/user_di.dart';
@@ -101,9 +102,7 @@ Future<void> init() async {
   sl.registerLazySingleton<ApiHelper>(
     () => DioApiHelper(dio: sl(), getTokenUseCase: sl()),
   );
-  final storage = FlutterSecureStorage(
-    aOptions: AndroidOptions(),
-  );
+  final storage = FlutterSecureStorage(aOptions: AndroidOptions());
   sl.registerLazySingleton(() => storage);
 
   /// Feature DI
@@ -113,4 +112,5 @@ Future<void> init() async {
   userDi();
   favoriteDi();
   cartDi();
+  orderDi();
 }

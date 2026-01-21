@@ -255,4 +255,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get productRemovedFromCartSuccessfully => 'Product removed from cart successfully';
+
+  @override
+  String get myOrders => 'My Orders';
+
+  @override
+  String get orderDetails => 'Order Details';
 }

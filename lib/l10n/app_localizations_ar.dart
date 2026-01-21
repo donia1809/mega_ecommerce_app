@@ -255,4 +255,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get productRemovedFromCartSuccessfully => 'تم حذف المنتج من السلة بنجاح';
+
+  @override
+  String get myOrders => 'طلباتي';
+
+  @override
+  String get orderDetails => 'تفاصيل الطلب';
 }
