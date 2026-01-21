@@ -7,6 +7,7 @@ import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart'
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/core/utiles/app_icons.dart';
 import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/logout/logout_cubit.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/user_profile/user_profile_cubit.dart';
@@ -72,6 +73,19 @@ class MoreScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 16),
+
+                  Container(decoration: BoxDecoration(color: AppColors.containerBackground,borderRadius: BorderRadius.circular(8)),
+                    child: ListTile(
+                      onTap: () {
+                        context.navigateTo(AppRoutes.myOrdersScreen);
+                      },
+                      trailing: Icon(Icons.arrow_right_alt_sharp),
+                      leading: SvgPicture.asset(AppIcons.shoppingBag),
+                      title: Text(AppLocalizations.of(context)!.myOrders),
+                    ),
+                  ),
+
+                 // const SizedBox(height: 16),
 
                   ListTile(
                     onTap: () {

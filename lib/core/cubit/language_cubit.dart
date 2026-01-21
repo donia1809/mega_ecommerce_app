@@ -31,4 +31,5 @@ class AppLanguageCubit extends Cubit<AppLanguageState> {
       (language) => emit(state.copyWith(language: language)),
       );
   }
+  
 }

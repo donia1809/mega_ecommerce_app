@@ -21,6 +21,12 @@ class LogoutCubit extends Cubit<ILogoutState> {
       (_) => emit(const LogoutSuccessState()),
     );
   }
+  @override
+  void emit(ILogoutState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }
 
 

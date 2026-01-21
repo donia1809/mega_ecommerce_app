@@ -6,4 +6,7 @@ class AppImages {
   static const String lock = 'assets/images/lock.png';
   static const String clothes = 'assets/images/clothes.png';
   static const String advertisments = 'assets/images/advertisments.png';
+  static const String confirmation = 'assets/images/confirmation.png';
+  static const String confirmationBg = 'assets/images/confirmation_bg.png';
+
 }

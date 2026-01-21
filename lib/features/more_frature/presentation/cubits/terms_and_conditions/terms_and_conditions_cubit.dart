@@ -19,4 +19,10 @@ class TermsAndConditionsCubit extends Cubit<ITermsAndConditionsState> {
       (terms) => emit(TermsAndConditionsSuccessState(terms: terms)),
     );
   }
+  @override
+  void emit(ITermsAndConditionsState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

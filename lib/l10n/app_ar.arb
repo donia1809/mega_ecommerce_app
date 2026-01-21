@@ -91,5 +91,7 @@
   "pleaseEnterValidPassword": "من ضلك ادخل كلمة مرور صحيحة",
   "addToCart": "اضافة الي السلة",
   "addedToCartSuccessfully": "تمت اضافة العنصر للسلة بنجاح",
-  "productRemovedFromCartSuccessfully": "تم حذف المنتج من السلة بنجاح"
+  "productRemovedFromCartSuccessfully": "تم حذف المنتج من السلة بنجاح",
+  "myOrders":"طلباتي",
+  "orderDetails":"تفاصيل الطلب"
 }

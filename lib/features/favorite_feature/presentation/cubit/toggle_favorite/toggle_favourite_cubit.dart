@@ -31,4 +31,10 @@ class ToggleFavoriteCubit extends Cubit<IToggleFavoriteState> {
       },
     );
   }
+  @override
+  void emit(IToggleFavoriteState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

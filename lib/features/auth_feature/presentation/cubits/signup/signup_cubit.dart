@@ -39,4 +39,10 @@ class SignupCubit extends Cubit<ISignupState> {
     });
     // emit(SignupInitialState());
   }
+  @override
+  void emit(ISignupState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

@@ -19,6 +19,11 @@ class AddToCartCubit extends Cubit<IAddToCartState> {
       (items) => emit(AddToCartSuccessState(items: items.cartItems)),
     );
   }
-
+@override
+  void emit(IAddToCartState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 
 }

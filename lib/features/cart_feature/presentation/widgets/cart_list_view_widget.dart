@@ -65,14 +65,6 @@ class CartListViewWidget extends StatelessWidget {
                             Expanded(
                               child: CounterWidget(
                                 cartItem: item,
-                                // onChangeValue: (changeValue) {
-                                //   context.read<CartCubit>().increaseQuantity(
-                                //     cartId: changeValue.quantity.toString(),
-                                //   );
-                                // context.read<CartCubit>().decreaseQuantity(
-                                //   cartId: changeValue.quantity.toString(),
-                                // );
-                                //  },
                               ),
                             ),
                             BlocProvider(

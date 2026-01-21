@@ -21,5 +21,6 @@ class AppIcons {
   static const String arrowUp = 'assets/icons/arrow _up.svg';
   static const String arrowDown = 'assets/icons/arrow _down.svg';
   static const String delete = 'assets/icons/delete.svg';
-
+  static const String shoppingBag = 'assets/icons/shopping_bag.svg';
+  static const String shop = 'assets/icons/shop.svg';
 }

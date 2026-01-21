@@ -37,4 +37,10 @@ class UpdateCartItemQuantityCubit extends Cubit<IUpdateCartItemQuantityState> {
     _debouncer.cancle();
     return super.close();
   } 
+  @override
+  void emit(IUpdateCartItemQuantityState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

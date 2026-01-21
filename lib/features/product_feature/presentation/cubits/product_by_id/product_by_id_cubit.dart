@@ -19,4 +19,10 @@ class ProductByIdCubit extends Cubit<IProductByIdState> {
       (result) => emit(ProductByIdSuccessState(getProductById: result)),
     );
   }
+  @override
+  void emit(IProductByIdState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }

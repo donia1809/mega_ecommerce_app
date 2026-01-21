@@ -18,4 +18,10 @@ class AddReviewCubit extends Cubit<IAddReviewState> {
       (addReview) => emit(AddReviewSuccessState(addReview: addReview)),
     );
   }
+  @override
+  void emit(IAddReviewState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 }
