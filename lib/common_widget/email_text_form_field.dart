@@ -20,7 +20,7 @@ class EmailTextFormField extends StatelessWidget {
         if (text == null || text.trim().isEmpty == true) {
           return AppLocalizations.of(context)!.pleaseEnterEmailAddress;
         }
-        if (!text.contains('@')) {
+        if (!text.contains('@gmail.com')) {
           return AppLocalizations.of(context)!.pleaseEnterValidEmail;
         }
         return null;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mega_ecommerce_app/common_widget/app_loading_widget.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/user_profile/user_profile_cubit.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
@@ -37,17 +37,12 @@ class HeaderWidget extends StatelessWidget {
             ),
           ),
         ),
-        title: BlocBuilder<UserProfileCubit, IUserProfileState>(
-          builder: (context, state) {
-            if (state is UserProfileLoadingState) {
-              return AppLoadingWidget();
-            } else if (state is UserProfileSuccessState) {
-              return Text(
-                AppLocalizations.of(context)!.helloUser(state.profile.name),
-                style: AppTextStyles.bold28,
-              );
-            }
-            return SizedBox();
+        title: AppAutoLoginWidget(
+          authenticatedBuilder: (user) {
+            return Text(
+              AppLocalizations.of(context)!.helloUser(user.name),
+              style: AppTextStyles.bold28,
+            );
           },
         ),
         subtitle: Text(AppLocalizations.of(context)!.welcomeToMega),

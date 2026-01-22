@@ -1,4 +1,5 @@
 import 'package:mega_ecommerce_app/features/auth_feature/domain/entity/auth_entity.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/entities/role_enum.dart';
 
 class AuthModel extends AuthEntity {
   const AuthModel({
@@ -20,7 +21,7 @@ class AuthModel extends AuthEntity {
       email: data['email'],
       token: data['token'],
       avatar: data['avatar'],
-      role: data['role'],
+      role: RoleEnum.fromStrig(data['role']),
       isVerified: data['isVerified'],
     );
   }

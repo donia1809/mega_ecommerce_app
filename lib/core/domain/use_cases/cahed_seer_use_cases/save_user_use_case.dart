@@ -11,3 +11,4 @@ class SaveUserUseCase {
     return await cachedAuthenticatedRepo.saveUser(user);
   }
 }
+

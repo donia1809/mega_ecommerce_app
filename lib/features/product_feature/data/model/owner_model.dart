@@ -8,6 +8,11 @@ class OwnerModel extends OwnerEntity {
     required super.rate,
   });
   factory OwnerModel.fromJson(Map<String, dynamic> json) {
-    return OwnerModel(id: json['id'], name: json['name'], image: json['image'], rate: json['rate']??0);
+    return OwnerModel(
+      id: json['id'],
+      name: json['name'],
+      image: json['image'],
+      rate: json['rate'] ?? 0,
+    );
   }
 }

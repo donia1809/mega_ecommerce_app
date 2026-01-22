@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mega_ecommerce_app/common_widget/app_loading_widget.dart';
+// import 'package:mega_ecommerce_app/common_widget/app_loading_widget.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
@@ -10,6 +10,8 @@ import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/core/utiles/app_icons.dart';
 import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/logout/logout_cubit.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/entities/role_enum.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/user_profile/user_profile_cubit.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
@@ -20,7 +22,7 @@ class MoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => sl<UserProfileCubit>()..getProfile()),
+        //BlocProvider(create: (context) => sl<UserProfileCubit>()..getProfile()),
         BlocProvider(create: (context) => sl<LogoutCubit>()),
       ],
       child: Scaffold(
@@ -39,42 +41,83 @@ class MoreScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16),
-                  BlocBuilder<UserProfileCubit, IUserProfileState>(
-                    builder: (context, state) {
-                      if (state is UserProfileLoadingState) {
-                        return AppLoadingWidget();
-                      }
-                      if (state is UserProfileSuccessState) {
-                        return ListTile(
-                          onTap: () {
-                            context
-                                .navigateTo(
-                                  AppRoutes.profileDetailsScreen,
-                                  arguments: state.profile,
-                                )
-                                .then((_) {
-                                  if (context.mounted) {
-                                    context
-                                        .read<UserProfileCubit>()
-                                        .getProfile();
-                                  }
-                                });
-                          },
-                          leading: CircleAvatar(
-                            radius: 24,
-                            backgroundImage: AssetImage(
-                              'assets/images/app_icon.png',
-                            ),
+                  // BlocBuilder<UserProfileCubit, IUserProfileState>(
+                  //   builder: (context, state) {
+                  //     if (state is UserProfileLoadingState) {
+                  //       return AppLoadingWidget();
+                  //     }
+                  //     if (state is UserProfileSuccessState) {
+                  //      return
+                  AppAutoLoginWidget(
+                    authenticatedBuilder: (user) {
+                      return ListTile(
+                        onTap: () {
+                          context
+                              .navigateTo(
+                                AppRoutes.profileDetailsScreen,
+                                arguments: user,
+                              )
+                              .then((_) {
+                                if (context.mounted) {
+                                  context.read<UserProfileCubit>().getProfile();
+                                }
+                              });
+                        },
+                        leading: CircleAvatar(
+                          radius: 24,
+                          backgroundImage: AssetImage(
+                            'assets/images/app_icon.png',
                           ),
-                          title: Text(state.profile.name),
-                        );
-                      }
-                      return SizedBox();
+                        ),
+                        title: Text(user.name),
+                      );
                     },
                   ),
+                  //;
+                  // }
+                  // return SizedBox();
+                  // },
+                  //),
                   const SizedBox(height: 16),
 
-                  Container(decoration: BoxDecoration(color: AppColors.containerBackground,borderRadius: BorderRadius.circular(8)),
+                  AppAutoLoginWidget(
+                    authenticatedBuilder: (user) {
+                      final isUser = user.role == RoleEnum.user;
+
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.containerBackground,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: ListTile(
+                          onTap: () {
+                            if (isUser) {
+                              context.navigateTo(AppRoutes.sendRequestScreen);
+                            } else {
+                              context.navigateTo(
+                                AppRoutes.myStoreProductScreen,
+                              );
+                            }
+                          },
+                          trailing: Icon(Icons.arrow_right_alt_sharp),
+                          leading: SvgPicture.asset(AppIcons.shop),
+                          title: Text(
+                            isUser
+                                ? AppLocalizations.of(context)!.becomeStoreOwner
+                                : AppLocalizations.of(context)!.manageMyStore,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.containerBackground,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     child: ListTile(
                       onTap: () {
                         context.navigateTo(AppRoutes.myOrdersScreen);
@@ -84,8 +127,6 @@ class MoreScreen extends StatelessWidget {
                       title: Text(AppLocalizations.of(context)!.myOrders),
                     ),
                   ),
-
-                 // const SizedBox(height: 16),
 
                   ListTile(
                     onTap: () {
@@ -212,6 +253,8 @@ class MoreScreen extends StatelessWidget {
             ),
           ),
         ),
+        //),
+        // ),
       ),
     );
   }

@@ -628,6 +628,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Products: '**
   String get product;
+
+  /// No description provided for @becomeStoreOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Become Store Owner'**
+  String get becomeStoreOwner;
+
+  /// No description provided for @requestBeStoreOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Request To Be Store Owner'**
+  String get requestBeStoreOwner;
+
+  /// No description provided for @welcomeRequestMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome in mega store business,\n be part of our team and be one of our family'**
+  String get welcomeRequestMessage;
+
+  /// No description provided for @business.
+  ///
+  /// In en, this message translates to:
+  /// **'Business'**
+  String get business;
+
+  /// No description provided for @describeYourBusiness.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe for admin your business'**
+  String get describeYourBusiness;
+
+  /// No description provided for @sendRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Request'**
+  String get sendRequest;
+
+  /// No description provided for @pleaseEnterYourBusinessDescribtion.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Your Business Describtion'**
+  String get pleaseEnterYourBusinessDescribtion;
+
+  /// No description provided for @manageMyStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage My Store'**
+  String get manageMyStore;
+
+  /// No description provided for @storePtoducts.
+  ///
+  /// In en, this message translates to:
+  /// **'Store Ptoducts'**
+  String get storePtoducts;
+
+  /// No description provided for @editProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Product'**
+  String get editProduct;
+
+  /// No description provided for @removeProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Product'**
+  String get removeProduct;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

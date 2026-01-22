@@ -276,4 +276,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get product => 'Products: ';
+
+  @override
+  String get becomeStoreOwner => 'Become Store Owner';
+
+  @override
+  String get requestBeStoreOwner => 'Request To Be Store Owner';
+
+  @override
+  String get welcomeRequestMessage => 'Welcome in mega store business,\n be part of our team and be one of our family';
+
+  @override
+  String get business => 'Business';
+
+  @override
+  String get describeYourBusiness => 'Describe for admin your business';
+
+  @override
+  String get sendRequest => 'Send Request';
+
+  @override
+  String get pleaseEnterYourBusinessDescribtion => 'Please Enter Your Business Describtion';
+
+  @override
+  String get manageMyStore => 'Manage My Store';
+
+  @override
+  String get storePtoducts => 'Store Ptoducts';
+
+  @override
+  String get editProduct => 'Edit Product';
+
+  @override
+  String get removeProduct => 'Remove Product';
 }
