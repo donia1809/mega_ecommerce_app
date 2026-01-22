@@ -8,6 +8,7 @@ import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/cubit/toggle_favorite/toggle_favourite_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/entities/role_enum.dart';
 
 class ProductDetails extends StatelessWidget {
   final ProductEntity product;
@@ -53,6 +54,10 @@ class ProductDetails extends StatelessWidget {
                       ),
                       AppAutoLoginWidget(
                         authenticatedBuilder: (user) {
+                          final isAdmin = user.role == RoleEnum.admin;
+                          if (isAdmin) {
+                            return SizedBox();
+                          }
                           return Padding(
                             padding: const EdgeInsets.all(16),
                             child: BlocConsumer<
