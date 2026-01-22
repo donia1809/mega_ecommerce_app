@@ -1,4 +1,6 @@
+import 'package:mega_ecommerce_app/features/user_featere/domain/entities/role_enum.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/entities/user_profile_entity.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/entities/user_status_enum.dart';
 
 class UserProfileModel extends UserProfileEntity {
   const UserProfileModel({
@@ -8,6 +10,7 @@ class UserProfileModel extends UserProfileEntity {
     required super.avatar,
     required super.role,
     required super.isVerified,
+    required super.requestStatus,
   });
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) {
@@ -18,8 +21,9 @@ class UserProfileModel extends UserProfileEntity {
       name: data['name'],
       email: data['email'],
       avatar: data['avatar'],
-      role: data['role'],
-      isVerified: data['isVerified'],
+      role: RoleEnum.fromStrig(data['role']??'user'),
+      isVerified: data['isVerified']?? false, 
+      requestStatus: UserStatusEnum.fromString(data['traderRequestStatus']??'Pending'),
     );
   }
 }

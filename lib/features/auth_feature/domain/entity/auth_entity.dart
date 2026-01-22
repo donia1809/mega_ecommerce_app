@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/entities/role_enum.dart';
 
 class AuthEntity extends Equatable {
   final String id;
@@ -6,7 +7,7 @@ class AuthEntity extends Equatable {
   final String email;
   final String token;
   final String avatar;
-  final String role;
+  final RoleEnum role;
   final bool isVerified;
   const AuthEntity({
     required this.id,

@@ -1,10 +1,14 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/login/login_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/otp/otp_screen.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/check_out_screen.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/my_orders_screens.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/order_datails_screen.dart';
+import 'package:mega_ecommerce_app/features/owner_feature/presentation/pages/my_store_product_screen.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/page/add_review_screen.dart';
+import 'package:mega_ecommerce_app/features/request_feature/presentation/pages/send_request_screen.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/reset_pasword_screen.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/pages/reset_email_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/signup/signup_screen.dart';
@@ -52,6 +56,8 @@ class AppRoutes {
   static const String myOrdersScreen = '/myOrdersScreen';
   static const String orderDetailsScreen = '/orderDetailsScreen';
   static const String checkOutScreen = '/checkOutScreen';
+  static const String sendRequestScreen = '/sendRequestScreen';
+  static const String myStoreProductScreen = '/myStoreProductScreen';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     final Widget child;
@@ -125,15 +131,20 @@ class AppRoutes {
         child = const VerifyEmailScreen();
 
       case orderDetailsScreen:
-      final orderId = settings.arguments as String;
-        child = OrderDetailsScreen(orderId:orderId,);
+        final orderId = settings.arguments as String;
+        child = OrderDetailsScreen(orderId: orderId);
 
       case myOrdersScreen:
         child = const MyOrdersScreen();
 
       case checkOutScreen:
         child = const CheckOutScreen();
-  
+
+      case sendRequestScreen:
+        child = SendRequestScreen();
+
+      case myStoreProductScreen:
+        child = MyStoreProductScreen();
 
       default:
         child = const OnBoardingScreen();

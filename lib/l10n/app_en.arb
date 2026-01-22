@@ -98,6 +98,16 @@
   "status":"Status: ",
   "count":"Count: ",
   "storeOwner":"Store Owner: ",
-  "product":"Products: "
-
+  "product":"Products: ",
+  "becomeStoreOwner":"Become Store Owner",
+  "requestBeStoreOwner":"Request To Be Store Owner",
+  "welcomeRequestMessage":"Welcome in mega store business,\n be part of our team and be one of our family",
+  "business":"Business",
+  "describeYourBusiness":"Describe for admin your business",
+  "sendRequest":"Send Request",
+  "pleaseEnterYourBusinessDescribtion":"Please Enter Your Business Describtion",
+  "manageMyStore":"Manage My Store",
+  "storePtoducts":"Store Ptoducts",
+  "editProduct":"Edit Product",
+  "removeProduct":"Remove Product"
 }

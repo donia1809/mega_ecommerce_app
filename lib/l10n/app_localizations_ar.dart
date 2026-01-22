@@ -276,4 +276,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get product => 'المنتج :';
+
+  @override
+  String get becomeStoreOwner => 'لتصبح صاحب متجر';
+
+  @override
+  String get requestBeStoreOwner => 'ارسال طلب لتصبح صاحب متجر';
+
+  @override
+  String get welcomeRequestMessage => 'مرحباً بكم في أعمال متجر ميجا،\n كن جزءًا من فريقنا وكن واحدًا من عائلتنا';
+
+  @override
+  String get business => 'الأعمال';
+
+  @override
+  String get describeYourBusiness => 'وضح لنا طبيعة عملك';
+
+  @override
+  String get sendRequest => 'ارسال الطلب';
+
+  @override
+  String get pleaseEnterYourBusinessDescribtion => 'من فضلك وضح لنا طبيعة عملك';
+
+  @override
+  String get manageMyStore => 'إدارة متجري';
+
+  @override
+  String get storePtoducts => 'منتجات المتجر';
+
+  @override
+  String get editProduct => 'تعديل المنتج';
+
+  @override
+  String get removeProduct => 'حذف المنتج';
 }

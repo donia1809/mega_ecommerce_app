@@ -7,7 +7,7 @@ class CommonTextFormFieldWidget extends StatefulWidget {
   final String hintText;
   final String lable;
   final TextEditingController? controller;
-  final Validator validator;
+  final Validator? validator;
   final bool securedPassword;
 
   const CommonTextFormFieldWidget({
@@ -15,7 +15,7 @@ class CommonTextFormFieldWidget extends StatefulWidget {
     required this.hintText,
     required this.lable,
     required this.controller,
-    required this.validator,
+     this.validator,
     this.securedPassword = false,
   });
 
@@ -47,6 +47,7 @@ class _CommonTextFormFieldWidgetState extends State<CommonTextFormFieldWidget> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         labelStyle: AppTextStyles.regular13,
         hintText: widget.hintText,
+        hintStyle: AppTextStyles.regular15,
         suffixIcon:
             widget.securedPassword
                 ? InkWell(

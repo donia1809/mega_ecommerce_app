@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:mega_ecommerce_app/core/domain/entity/entities/cached_user_entity.dart';
+import 'package:mega_ecommerce_app/features/user_featere/domain/entities/role_enum.dart';
 
 class CachedUserModel extends CachedUserEntity {
   const CachedUserModel({
@@ -8,6 +9,7 @@ class CachedUserModel extends CachedUserEntity {
     required super.name,
     required super.email,
     required super.isVerified,
+    required super.role,
   });
 
   factory CachedUserModel.formJson(String json) {
@@ -21,20 +23,28 @@ class CachedUserModel extends CachedUserEntity {
       name: json['name'],
       email: json['email'],
       isVerified: json['isVerified'],
+      role: RoleEnum.fromStrig(json['role']),
     );
   }
 
-  factory CachedUserModel.fromEntity(CachedUserEntity entity) {
+  factory CachedUserModel.fromEntity(CachedUserEntity user) {
     return CachedUserModel(
-      email: entity.email,
-      id: entity.id,
-      isVerified: entity.isVerified,
-      name: entity.name,
+      email: user.email,
+      id: user.id,
+      isVerified: user.isVerified,
+      name: user.name,
+      role: user.role,
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {'id': id, 'name': name, 'email': email, 'isVerified': isVerified};
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'isVerified': isVerified,
+      'role': role.value,
+    };
   }
 
   @override

@@ -29,6 +29,7 @@ class SignupCubit extends Cubit<ISignupState> {
         name: auth.name,
         email: auth.email,
         isVerified: auth.isVerified,
+        role: auth.role
       );
 
       final token = TokenEntity(token: auth.token);

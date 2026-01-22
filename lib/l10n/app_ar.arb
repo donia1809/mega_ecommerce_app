@@ -98,5 +98,16 @@
   "status":"الحالة :",
   "count":"الكمية :",
   "storeOwner":"صاحب المتجر :",
-  "product":"المنتج :"
+  "product":"المنتج :",
+  "becomeStoreOwner":"لتصبح صاحب متجر",
+  "requestBeStoreOwner":"ارسال طلب لتصبح صاحب متجر",
+  "welcomeRequestMessage":"مرحباً بكم في أعمال متجر ميجا،\n كن جزءًا من فريقنا وكن واحدًا من عائلتنا",
+  "business":"الأعمال",
+  "describeYourBusiness":"وضح لنا طبيعة عملك",
+  "sendRequest":"ارسال الطلب",
+  "pleaseEnterYourBusinessDescribtion":"من فضلك وضح لنا طبيعة عملك",
+  "manageMyStore":"إدارة متجري",
+  "storePtoducts":"منتجات المتجر",
+  "editProduct":"تعديل المنتج",
+  "removeProduct":"حذف المنتج"
 }

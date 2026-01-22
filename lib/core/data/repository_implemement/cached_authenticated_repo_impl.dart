@@ -22,6 +22,8 @@ class CachedAuthenticatedRepoImpl implements CachedAuthenticatedRepo {
       await cachedAuthenticatedDataSource.saveUser(
         CachedUserModel.fromEntity(user),
       );
+      debugPrint('[Saved Cached User] ::: $user');
+
       return Right(user);
     } catch (e) {
       return Left(ExceptionsHandler(object: e).toFailure);
@@ -32,6 +34,7 @@ class CachedAuthenticatedRepoImpl implements CachedAuthenticatedRepo {
   Future<Either<Failure, CachedUserEntity?>> getUser() async {
     try {
       final user = await cachedAuthenticatedDataSource.getUser();
+      debugPrint('[Get Cached User] ::: $user');
       return Right(user);
     } catch (e) {
       return Left(ExceptionsHandler(object: e).toFailure);

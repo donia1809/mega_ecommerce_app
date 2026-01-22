@@ -36,7 +36,7 @@ class AppTheme {
         textStyle: AppTextStyles.button18,
         foregroundColor: AppColors.white,
         minimumSize: Size(double.infinity, 56),
-        backgroundColor: Colors.blue,
+        //backgroundColor: AppColors.primaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
     ),
@@ -58,6 +58,8 @@ class AppTheme {
       selectedColor: AppColors.grey,
       subtitleTextStyle: AppTextStyles.regular15,
       titleTextStyle: AppTextStyles.regular15.copyWith(color: AppColors.black)
-    )
+    ),
+
+  
   );
 }

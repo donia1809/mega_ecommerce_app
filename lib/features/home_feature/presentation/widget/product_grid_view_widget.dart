@@ -47,12 +47,6 @@ class ProductGridViewWidget extends StatelessWidget {
           product: product,
           onToggleFavoriteSuccess: onToggleFavoriteSuccess,
           
-          // (newProduct) {
-          //   context.read<ProductsCubit>().updateProduct(newProduct: newProduct);
-          //   context.read<GetFavoriteCubit>().removeFavorite(
-          //     newProduct: newProduct,
-          //   );
-          // },
           onTap: () {
             context.navigateTo(
               AppRoutes.productDetailsScreen,

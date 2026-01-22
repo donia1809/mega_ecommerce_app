@@ -34,19 +34,22 @@ class CachedAuthenticatedDataSourceImpl
     } catch (_) {
       throw CacheException();
     }
+    debugPrint('[Save User] ::: $user');
+
     return user;
   }
 
   @override
   Future<CachedUserModel?> getUser() async {
     try {
-      final json = await _storage.read(key: _kCachedUserKey);
-      if (json == null || json.isEmpty) {
+      final user = await _storage.read(key: _kCachedUserKey);
+      debugPrint('[Get User] ::: $user');
+      if (user == null || user.isEmpty) {
         return null;
       }
-
-      return CachedUserModel.formJson(json);
+      return CachedUserModel.formJson(user);
     } catch (_) {}
+
     return null;
   }
 
@@ -54,7 +57,10 @@ class CachedAuthenticatedDataSourceImpl
   Future<void> deleteUser() async {
     try {
       await _storage.delete(key: _kCachedUserKey);
-    } catch (_) {}
+      debugPrint('[User deleted]: User deleted success');
+    } catch (e) {
+      debugPrint('Failed to delete User: $e');
+    }
   }
 
   // ---------- TOKEN ----------
