@@ -14,11 +14,19 @@ class OwnerProductCubit extends Cubit<IOwnerProductState> {
   Future<void> getOwnerProduct() async {
     emit(OwnerProductLoadingState());
 
-     final result = await _getOwnerProductUseCase();
+    final result = await _getOwnerProductUseCase();
 
     result.fold(
       (failure) => emit(OwnerProductFailureState(failure: failure)),
-      (ownerProduct) => emit(OwnerProductSeccessState(ownerProduct: ownerProduct)),
+      (ownerProduct) =>
+          emit(OwnerProductSeccessState(ownerProduct: ownerProduct)),
     );
+  }
+
+  @override
+  void emit(IOwnerProductState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
   }
 }

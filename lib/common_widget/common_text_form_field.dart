@@ -47,7 +47,7 @@ class _CommonTextFormFieldWidgetState extends State<CommonTextFormFieldWidget> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         labelStyle: AppTextStyles.regular13,
         hintText: widget.hintText,
-        hintStyle: AppTextStyles.regular15,
+        hintStyle: AppTextStyles.regular13,
         suffixIcon:
             widget.securedPassword
                 ? InkWell(

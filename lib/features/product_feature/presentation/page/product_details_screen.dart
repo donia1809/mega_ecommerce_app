@@ -11,6 +11,7 @@ import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/domain/use_case/add_product_to_cart_use_case.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/presentation/cubits/add_to_cart/add_to_cart_cubit.dart';
+import 'package:mega_ecommerce_app/features/owner_feature/presentation/cubits/delete_product/delete_product_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/domain/entities/product_entity.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/cubits/product_by_id/product_by_id_cubit.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/widget/product_description_widget.dart';
@@ -40,7 +41,7 @@ class ProductDetailsScreen extends StatelessWidget {
           title: Text(AppLocalizations.of(context)!.producDetails),
         ),
         body: Padding(
-          padding: EdgeInsets.only(right: 16, left: 16,bottom: 16),
+          padding: EdgeInsets.only(right: 16, left: 16, bottom: 16),
           child: BlocBuilder<ProductByIdCubit, IProductByIdState>(
             builder: (context, state) {
               if (state is ProductByIdLoadingState) {
@@ -134,29 +135,70 @@ class _ProductDetailsScreenBody extends StatelessWidget {
                         },
                         text: AppLocalizations.of(context)!.addToCart,
                       )
-                      : Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: CommonElevatedButton(
-                              onPressed: () {},
-                              text: AppLocalizations.of(context)!.editProduct,
-                            ),
-                          ),
-                          SizedBox(width: 8,),
-                          Expanded(
-                            child: CommonElevatedButton(
-                              color: AppColors.red,
-                              onPressed: () {},
-                              text: AppLocalizations.of(context)!.removeProduct,
-                            ),
-                          ),
-                        ],
-                      );
+                      : OwnerButtons(product: product);
                 },
               ),
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class OwnerButtons extends StatelessWidget {
+  final ProductEntity product;
+  const OwnerButtons({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => sl<DeleteProductCubit>(),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: CommonElevatedButton(
+              onPressed: () {},
+              text: AppLocalizations.of(context)!.editProduct,
+            ),
+          ),
+          SizedBox(width: 8),
+
+          Expanded(
+            child: BlocConsumer<DeleteProductCubit, IDeleteProductState>(
+              listener: (context, state) {
+                if (state is DeleteProductFailureState) {
+                  showSnackBar(
+                    context: context,
+                    message: state.failure.message,
+                    color: AppColors.red,
+                  );
+                } else if (state is DeleteProductSuccessState) {
+                  showSnackBar(
+                    context: context,
+                    message:
+                        AppLocalizations.of(context)!.productDeletedSuccessfuly,
+                    color: AppColors.green,
+                  );
+                  context.navigateBack();
+                }
+              },
+              builder: (context, state) {
+                return CommonElevatedButton(
+                  color: AppColors.red,
+                  isLoading: state is DeleteProductLoadingState,
+                  onPressed: () {
+                    context.read<DeleteProductCubit>().deleteProduct(
+                      product.id,
+                    );
+                  },
+                  text: AppLocalizations.of(context)!.removeProduct,
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

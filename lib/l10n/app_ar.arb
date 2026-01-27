@@ -109,5 +109,30 @@
   "manageMyStore":"إدارة متجري",
   "storePtoducts":"منتجات المتجر",
   "editProduct":"تعديل المنتج",
-  "removeProduct":"حذف المنتج"
+  "removeProduct":"حذف المنتج",
+
+  "@editProduct": {
+    "description": "ترجمة التعديل -------------------"
+  },
+  "name":"الاسم",
+  "enterProductName":"ادخل اسم المنتج",
+  "enterProductPrice":"ادخل سعر المنتج",
+  "enterProductDescription":"ادخل وصف المنتج",
+  "category":"نوع المنتج",
+  "countInStock": "عدد المنتجات المتاحة",
+  "productCountInStock":"ادخل عدد المنتجات المتاحة",
+  "enterProductCategory":"ادخل نوع المنتج",
+  "addProduct":"اضافة منتج",
+  "pleaseEnterProductName":"من فضلك ادخل اسم المنتج",
+  "pleaseEnterProductPrice":"من فضلك ادخل سعر المنتج",
+  "pleaseEnterProductDescription":"من فضلك ادخل وصف المنتج",
+  "pleaseEnterProductCountInStock":"من فضلك ادخل عدد المنتجات المتاحة",
+  "pleaseEnterProductCategory":"من فضلك ادخل نوع المنتج",
+  "addMainProductImage":"ادخل صورة المنتج",
+  "uploadMoreImagesForProduct":"ادخل صور اخري خاصة للمنتج",
+  "productCreatedSeccessfully":"تم اضافة المنتج بنجاح",
+  "productDeletedSuccessfuly":"تم حذف المنتج بنجاح",
+  "silenceIsGolden":"الصمت من ذهب، لكن العروض أفضل",
+  "weWellLetYou":"سوف نخبرك عندما يحدث شيء مثير",
+  "exploreProducts":"استكشف المنتجات"
 }

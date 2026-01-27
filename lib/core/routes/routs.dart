@@ -1,11 +1,10 @@
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/login/login_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/otp/otp_screen.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/check_out_screen.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/my_orders_screens.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/order_datails_screen.dart';
+import 'package:mega_ecommerce_app/features/owner_feature/presentation/pages/add_product_screen.dart';
 import 'package:mega_ecommerce_app/features/owner_feature/presentation/pages/my_store_product_screen.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/page/add_review_screen.dart';
 import 'package:mega_ecommerce_app/features/request_feature/presentation/pages/send_request_screen.dart';
@@ -16,7 +15,7 @@ import 'package:mega_ecommerce_app/features/cart_feature/presentation/pages/cart
 import 'package:mega_ecommerce_app/features/product_feature/presentation/page/all_products_screen.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/presentation/page/favourite_screen.dart';
 import 'package:mega_ecommerce_app/features/home_feature/presentation/page/home_screen.dart';
-import 'package:mega_ecommerce_app/features/home_feature/presentation/page/notifications_screen.dart';
+import 'package:mega_ecommerce_app/features/notification_feature/presentation/pages/notifications_screen.dart';
 import 'package:mega_ecommerce_app/features/product_feature/presentation/page/product_details_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/about_app_screen.dart';
 import 'package:mega_ecommerce_app/features/more_frature/presentation/page/change_language_screen.dart';
@@ -58,6 +57,7 @@ class AppRoutes {
   static const String checkOutScreen = '/checkOutScreen';
   static const String sendRequestScreen = '/sendRequestScreen';
   static const String myStoreProductScreen = '/myStoreProductScreen';
+  static const String addProductScreen = '/addProductScreen';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     final Widget child;
@@ -141,10 +141,13 @@ class AppRoutes {
         child = const CheckOutScreen();
 
       case sendRequestScreen:
-        child = SendRequestScreen();
+        child = const SendRequestScreen();
 
       case myStoreProductScreen:
-        child = MyStoreProductScreen();
+        child = const MyStoreProductScreen();
+
+      case addProductScreen:
+        child = AddProductScreen();
 
       default:
         child = const OnBoardingScreen();

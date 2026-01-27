@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "165517394994",
+    "project_id": "mega-intern-app",
+    "storage_bucket": "mega-intern-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165517394994:android:6914e1fc3ebc07c731682b",
+        "android_client_info": {
+          "package_name": "com.example.mega"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4Eo5kIqJJa9vNoKRA2YpMiR-XwF0gWbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165517394994:android:fd944dd995b85a3b31682b",
+        "android_client_info": {
+          "package_name": "com.example.mega_ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4Eo5kIqJJa9vNoKRA2YpMiR-XwF0gWbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165517394994:android:e6170897a74c108e31682b",
+        "android_client_info": {
+          "package_name": "com.mega.intern.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4Eo5kIqJJa9vNoKRA2YpMiR-XwF0gWbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

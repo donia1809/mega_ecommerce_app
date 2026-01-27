@@ -7,7 +7,6 @@ const List<String> _advertismentsMedia = [
   'https://assets-static.invideo.io/images/large/Creative_Clothing_Advertisement_Ideas_To_Boost_Sales_revised_3_1_cefa9cda88.png',
   'https://tse4.mm.bing.net/th/id/OIP.LlXKTMK_ivlkoo_M52N2NwHaEK?w=1600&h=900&rs=1&pid=ImgDetMain&o=7&rm=3',
   'https://tse1.mm.bing.net/th/id/OIP.XHrsgpbSyrYXhN9lTH2h9AHaFM?rs=1&pid=ImgDetMain&o=7&rm=3',
-  'https://th.bing.com/th?id=OIF.ESwnHgTlX7qxGlkX6lbj%2fw&rs=1&pid=ImgDetMain&o=7&rm=3',
 ];
 
 class SlidableWidget extends StatelessWidget {

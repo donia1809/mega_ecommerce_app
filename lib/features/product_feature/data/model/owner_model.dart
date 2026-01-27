@@ -9,9 +9,9 @@ class OwnerModel extends OwnerEntity {
   });
   factory OwnerModel.fromJson(Map<String, dynamic> json) {
     return OwnerModel(
-      id: json['id'],
-      name: json['name'],
-      image: json['image'],
+      id: json['_id'] ?? '',
+      name: json['name'] ??'',
+      image: json['image'] ??'',
       rate: json['rate'] ?? 0,
     );
   }

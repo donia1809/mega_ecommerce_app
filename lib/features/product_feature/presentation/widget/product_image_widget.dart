@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:mega_ecommerce_app/common_widget/app_images.dart';
 import 'package:mega_ecommerce_app/common_widget/app_loading_widget.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
@@ -13,8 +15,8 @@ import 'package:mega_ecommerce_app/features/user_featere/domain/entities/role_en
 class ProductImageWidget extends StatelessWidget {
   final ProductEntity product;
   final void Function(ProductEntity newProduct)? onToggleFavoriteSuccess;
-
-  const ProductImageWidget({
+  final XFile? image;
+  const ProductImageWidget({this.image,
     super.key,
     required this.product,
     this.onToggleFavoriteSuccess,
@@ -35,16 +37,18 @@ class ProductImageWidget extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
-              child: Image.network(
-                product.image,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: 250,
-              ),
+              child: AppImage(path: image?.path ?? product.image),
+
+              // Image.network(
+              //   product.image,
+              //   fit: BoxFit.cover,
+              //   width: double.infinity,
+              //   height: 250,
+              // ),
             ),
             AppAutoLoginWidget(
               authenticatedBuilder: (user) {
-                final isAdmin = user.role == RoleEnum.admin;
+                final isUser = user.role == RoleEnum.user;
 
                 return Padding(
                   padding: const EdgeInsets.only(top: 8.0, right: 16),
@@ -66,7 +70,7 @@ class ProductImageWidget extends StatelessWidget {
                         }
                       },
                       builder: (context, state) {
-                        if (isAdmin) {
+                        if (!isUser) {
                           return SizedBox();
                         }
                         final isLoading = state is ToggleFavoriteLoadingState;

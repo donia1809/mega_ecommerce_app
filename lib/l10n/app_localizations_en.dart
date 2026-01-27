@@ -309,4 +309,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get removeProduct => 'Remove Product';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get enterProductName => 'Enter product name';
+
+  @override
+  String get enterProductPrice => 'Enter product price';
+
+  @override
+  String get enterProductDescription => 'Enter product description';
+
+  @override
+  String get category => 'Category';
+
+  @override
+  String get countInStock => 'Count in stock';
+
+  @override
+  String get productCountInStock => 'Enter product count in stock number';
+
+  @override
+  String get enterProductCategory => 'Enter product category';
+
+  @override
+  String get addProduct => 'Add Product';
+
+  @override
+  String get pleaseEnterProductName => 'Please Enter Product Name';
+
+  @override
+  String get pleaseEnterProductPrice => 'Please Enter Product Price';
+
+  @override
+  String get pleaseEnterProductDescription => 'Please Enter Product Description';
+
+  @override
+  String get pleaseEnterProductCountInStock => 'Please Enter Product Count In Stock';
+
+  @override
+  String get pleaseEnterProductCategory => 'Please Enter Product Category';
+
+  @override
+  String get addMainProductImage => 'Add main product image';
+
+  @override
+  String get uploadMoreImagesForProduct => 'Upload more images for product';
+
+  @override
+  String get productCreatedSeccessfully => 'Product Created Seccessfully';
+
+  @override
+  String get productDeletedSuccessfuly => 'Product Deleted Successfuly';
+
+  @override
+  String get silenceIsGolden => 'Silence is golden, but deals are better';
+
+  @override
+  String get weWellLetYou => 'We\'ll let you know when something exciting happens.';
+
+  @override
+  String get exploreProducts => 'Explore Products';
 }

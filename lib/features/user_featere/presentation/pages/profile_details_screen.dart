@@ -1,13 +1,14 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mega_ecommerce_app/common_widget/app_failure_widget.dart';
+import 'package:mega_ecommerce_app/common_widget/app_images.dart';
 import 'package:mega_ecommerce_app/common_widget/app_loading_widget.dart';
 import 'package:mega_ecommerce_app/common_widget/elevated_button.dart';
 import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
+import 'package:mega_ecommerce_app/core/utiles/image_picker_bottom_sheet.dart';
 import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/common_widget/name_text_form_field.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/entities/user_profile_entity.dart';
@@ -79,11 +80,11 @@ class __ProfileBodyState extends State<_ProfileBody> {
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage:
-                      _selectedImage != null
-                          ? FileImage(File(_selectedImage!.path))
-                          : NetworkImage(widget.data.avatar),
+                  child: AppImage(
+                    path: _selectedImage?.path ?? widget.data.avatar,
+                  ),
                 ),
+                
                 Positioned(
                   bottom: 0,
                   child: GestureDetector(
@@ -127,9 +128,10 @@ class __ProfileBodyState extends State<_ProfileBody> {
                     context.read<UpdateProfileCubit>().updateProfile(
                       UpdateProfileParams(
                         name: _nameController.text,
-                        avatar: _selectedImage!=null
-                        ?_selectedImage!.path
-                        :widget.data.avatar,
+                        avatar:
+                            _selectedImage != null
+                                ? _selectedImage!.path
+                                : widget.data.avatar,
                       ),
                     );
                   },
@@ -140,42 +142,6 @@ class __ProfileBodyState extends State<_ProfileBody> {
           ],
         ),
       ),
-    );
-  }
-
-  Future<XFile?> showImagePickerBottomSheet({
-    required BuildContext context,
-  }) async {
-    ImagePicker imagePicker = ImagePicker();
-
-    return await showModalBottomSheet<XFile>(
-      context: context,
-      builder: (_) {
-        return Center(
-          child: Column(
-            children: [
-              ListTile(
-                title: const Text('Camera'),
-                onTap: () async {
-                  final image = await imagePicker.pickImage(
-                    source: ImageSource.camera,
-                  );
-                  context.navigateBack<XFile>(image);
-                },
-              ),
-              ListTile(
-                title: const Text('Gallery'),
-                onTap: () async {
-                  final image = await imagePicker.pickImage(
-                    source: ImageSource.gallery,
-                  );
-                  context.navigateBack<XFile>(image);
-                },
-              ),
-            ],
-          ),
-        );
-      },
     );
   }
 }

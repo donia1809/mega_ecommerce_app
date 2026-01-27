@@ -23,4 +23,9 @@ class AppIcons {
   static const String delete = 'assets/icons/delete.svg';
   static const String shoppingBag = 'assets/icons/shopping_bag.svg';
   static const String shop = 'assets/icons/shop.svg';
+  static const String gallery = 'assets/icons/gallery_send.svg';
+  static const String gift = 'assets/icons/gift.svg';
+  static const String reminder = 'assets/icons/reminder.svg';
+  static const String order = 'assets/icons/order.svg';
+  static const String system = 'assets/icons/system.svg';
 }

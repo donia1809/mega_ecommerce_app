@@ -683,7 +683,7 @@ abstract class AppLocalizations {
   /// **'Store Ptoducts'**
   String get storePtoducts;
 
-  /// No description provided for @editProduct.
+  /// edit localization -------------------
   ///
   /// In en, this message translates to:
   /// **'Edit Product'**
@@ -694,6 +694,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove Product'**
   String get removeProduct;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @enterProductName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter product name'**
+  String get enterProductName;
+
+  /// No description provided for @enterProductPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter product price'**
+  String get enterProductPrice;
+
+  /// No description provided for @enterProductDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter product description'**
+  String get enterProductDescription;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// No description provided for @countInStock.
+  ///
+  /// In en, this message translates to:
+  /// **'Count in stock'**
+  String get countInStock;
+
+  /// No description provided for @productCountInStock.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter product count in stock number'**
+  String get productCountInStock;
+
+  /// No description provided for @enterProductCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter product category'**
+  String get enterProductCategory;
+
+  /// No description provided for @addProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Product'**
+  String get addProduct;
+
+  /// No description provided for @pleaseEnterProductName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Product Name'**
+  String get pleaseEnterProductName;
+
+  /// No description provided for @pleaseEnterProductPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Product Price'**
+  String get pleaseEnterProductPrice;
+
+  /// No description provided for @pleaseEnterProductDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Product Description'**
+  String get pleaseEnterProductDescription;
+
+  /// No description provided for @pleaseEnterProductCountInStock.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Product Count In Stock'**
+  String get pleaseEnterProductCountInStock;
+
+  /// No description provided for @pleaseEnterProductCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Enter Product Category'**
+  String get pleaseEnterProductCategory;
+
+  /// No description provided for @addMainProductImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add main product image'**
+  String get addMainProductImage;
+
+  /// No description provided for @uploadMoreImagesForProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload more images for product'**
+  String get uploadMoreImagesForProduct;
+
+  /// No description provided for @productCreatedSeccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Created Seccessfully'**
+  String get productCreatedSeccessfully;
+
+  /// No description provided for @productDeletedSuccessfuly.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Deleted Successfuly'**
+  String get productDeletedSuccessfuly;
+
+  /// No description provided for @silenceIsGolden.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence is golden, but deals are better'**
+  String get silenceIsGolden;
+
+  /// No description provided for @weWellLetYou.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll let you know when something exciting happens.'**
+  String get weWellLetYou;
+
+  /// No description provided for @exploreProducts.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Products'**
+  String get exploreProducts;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -54,8 +54,8 @@ class ProductDetails extends StatelessWidget {
                       ),
                       AppAutoLoginWidget(
                         authenticatedBuilder: (user) {
-                          final isAdmin = user.role == RoleEnum.admin;
-                          if (isAdmin) {
+                          final isUser = user.role == RoleEnum.user;
+                          if (!isUser) {
                             return SizedBox();
                           }
                           return Padding(

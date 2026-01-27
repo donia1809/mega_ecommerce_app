@@ -23,24 +23,27 @@ class ProductModel extends ProductEntity {
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
+    final ownerJson = json['owner'];
     return ProductModel(
       id: json['_id'],
-      owner: OwnerModel.fromJson(json['owner']),
+      owner: OwnerModel.fromJson(
+        ownerJson is Map<String, dynamic> ? ownerJson :{},
+        ),
       name: json['name'],
       description: json['description'],
       price: (json['price'] as num).toDouble(),
-      image: json['image'],
+      image: json['image']??'',
       images: List<String>.from(json['images'] ?? []),
-      category: json['category'],
-      countInStock: json['countInStock'],
-      rating: (json['rating'] ).toDouble(),
-      numReviews: json['numReviews'],
+      category: json['category']??'',
+      countInStock: json['countInStock']??0,
+      rating: (json['rating'] ?? 0).toDouble(),
+      numReviews: json['numReviews']??0,
       favorites: json['isFavorite'] ?? false,
       reviews:
-          List.from(json['reviews'] ??[])
-              .map((e) => ReviewModel.fromJson(e))
-              .toList(),
-          
+          List.from(
+            json['reviews'] ?? [],
+          ).map((e) => ReviewModel.fromJson(e)).toList(),
+
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
     );

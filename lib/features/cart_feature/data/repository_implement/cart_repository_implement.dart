@@ -43,29 +43,7 @@ class CartRepositoryImplement implements CartRepository {
     }
   }
 
-  @override
-  Future<Either<Failure, CartEntity>> incrementQuantity(
-    String productId,
-  ) async {
-    try {
-      final result = await cartRemoteDataSource.incrementQuantity(productId);
-      return Right(result);
-    } catch (e) {
-      return Left(ExceptionsHandler(object: e).toFailure);
-    }
-  }
 
-  @override
-  Future<Either<Failure, CartEntity>> decrementQuantity(
-    String productId,
-  ) async {
-    try {
-      final result = await cartRemoteDataSource.decrementQuantity(productId);
-      return Right(result);
-    } catch (e) {
-      return Left(ExceptionsHandler(object: e).toFailure);
-    }
-  }
 
   @override
   Future<Either<Failure, CartEntity>> updateQuantity(UpdateQuantityParams params) 

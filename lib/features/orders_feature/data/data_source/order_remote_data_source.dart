@@ -37,6 +37,7 @@ class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
   Future<OrderModel> getOrderDetails(OrdersDetailsParams params) async {
     final response = await apiHelper.getRequest(
       endPoint: '/api/orders/${params.id}',
+    
     );
     return OrderModel.fromJson(response);
   }

@@ -7,8 +7,7 @@ abstract class CartRemoteDataSource {
   Future<CartModel> getCart();
   Future<CartModel> addToCart(AddProductToCartParams params);
   Future<CartModel> removeFromCart(String id);
-  Future<CartModel> incrementQuantity(String id);
-  Future<CartModel> decrementQuantity(String id);
+
   Future<CartModel> updateQuantity(UpdateQuantityParams params);
 }
 
@@ -38,21 +37,6 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
     return CartModel.fromJson(response);
   }
 
-  @override
-  Future<CartModel> incrementQuantity(String id) async {
-    final response = await apiHelper.patchRequest(
-      endPoint: '/api/cart/$id/increment',
-    );
-    return CartModel.fromJson(response);
-  }
-
-  @override
-  Future<CartModel> decrementQuantity(String id) async {
-    final response = await apiHelper.patchRequest(
-      endPoint: '/api/cart/$id/decrement',
-    );
-    return CartModel.fromJson(response);
-  }
 
   @override
   Future<CartModel> updateQuantity(UpdateQuantityParams params) async {

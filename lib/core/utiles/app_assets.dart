@@ -8,5 +8,6 @@ class AppImages {
   static const String advertisments = 'assets/images/advertisments.png';
   static const String confirmation = 'assets/images/confirmation.png';
   static const String confirmationBg = 'assets/images/confirmation_bg.png';
+  static const String notification = 'assets/images/notification.png';
 
 }

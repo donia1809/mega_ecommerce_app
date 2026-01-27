@@ -5,7 +5,7 @@ class CommonElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
   final bool isLoading;
-  final double width;
+  final double? width;
   final Color color;
 
   const CommonElevatedButton({
@@ -13,15 +13,20 @@ class CommonElevatedButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     this.isLoading = false,
-    this.width = double.infinity,
-    this.color = AppColors.primaryColor
+    this.width,
+    this.color = AppColors.primaryColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      
-      style: ElevatedButton.styleFrom(backgroundColor: color),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        minimumSize:
+            width == null
+                ? Size(double.infinity,56)
+                : Size(width!,56),
+      ),
       onPressed: isLoading ? null : onPressed,
       child: Builder(
         builder: (context) {

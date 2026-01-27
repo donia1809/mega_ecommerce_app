@@ -309,4 +309,67 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get removeProduct => 'حذف المنتج';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get enterProductName => 'ادخل اسم المنتج';
+
+  @override
+  String get enterProductPrice => 'ادخل سعر المنتج';
+
+  @override
+  String get enterProductDescription => 'ادخل وصف المنتج';
+
+  @override
+  String get category => 'نوع المنتج';
+
+  @override
+  String get countInStock => 'عدد المنتجات المتاحة';
+
+  @override
+  String get productCountInStock => 'ادخل عدد المنتجات المتاحة';
+
+  @override
+  String get enterProductCategory => 'ادخل نوع المنتج';
+
+  @override
+  String get addProduct => 'اضافة منتج';
+
+  @override
+  String get pleaseEnterProductName => 'من فضلك ادخل اسم المنتج';
+
+  @override
+  String get pleaseEnterProductPrice => 'من فضلك ادخل سعر المنتج';
+
+  @override
+  String get pleaseEnterProductDescription => 'من فضلك ادخل وصف المنتج';
+
+  @override
+  String get pleaseEnterProductCountInStock => 'من فضلك ادخل عدد المنتجات المتاحة';
+
+  @override
+  String get pleaseEnterProductCategory => 'من فضلك ادخل نوع المنتج';
+
+  @override
+  String get addMainProductImage => 'ادخل صورة المنتج';
+
+  @override
+  String get uploadMoreImagesForProduct => 'ادخل صور اخري خاصة للمنتج';
+
+  @override
+  String get productCreatedSeccessfully => 'تم اضافة المنتج بنجاح';
+
+  @override
+  String get productDeletedSuccessfuly => 'تم حذف المنتج بنجاح';
+
+  @override
+  String get silenceIsGolden => 'الصمت من ذهب، لكن العروض أفضل';
+
+  @override
+  String get weWellLetYou => 'سوف نخبرك عندما يحدث شيء مثير';
+
+  @override
+  String get exploreProducts => 'استكشف المنتجات';
 }

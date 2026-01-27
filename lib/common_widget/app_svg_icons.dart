@@ -30,13 +30,12 @@ class AppImages extends StatelessWidget {
       return SvgPicture.asset(path, width: width, height: height, fit: fit);
     }
     else {
-       SvgPicture.file(
+      return SvgPicture.file(
         File(path),
         width: width,
         height: height,
         fit: fit,
       );
     }
-    return SizedBox();
   }
 }

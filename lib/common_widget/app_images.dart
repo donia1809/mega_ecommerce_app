@@ -16,6 +16,8 @@ class AppImage extends StatelessWidget {
     this.fit = BoxFit.cover,
   });
 
+
+
   @override
   Widget build(BuildContext context) {
     final ImageProvider imageProvider;
@@ -32,7 +34,7 @@ class AppImage extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
-      errorBuilder: (_, __, ___) => const Icon(Icons.error),
+      errorBuilder: (_, __, ___) => Center(child: const Icon(Icons.error,)),
     );
   }
 }
