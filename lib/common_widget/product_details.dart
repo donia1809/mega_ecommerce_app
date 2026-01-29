@@ -45,12 +45,14 @@ class ProductDetails extends StatelessWidget {
                   child: Stack(
                     alignment: AlignmentDirectional.topEnd,
                     children: [
-                      Image.network(
-                        product.image,
-                        height: double.infinity,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => const Icon(Icons.image),
+                      Center(
+                        child: Image.network(
+                          product.image,
+                          height: double.infinity,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => const Icon(Icons.image),
+                        ),
                       ),
                       AppAutoLoginWidget(
                         authenticatedBuilder: (user) {

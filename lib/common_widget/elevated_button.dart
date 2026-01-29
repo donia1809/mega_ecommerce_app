@@ -3,18 +3,20 @@ import 'package:mega_ecommerce_app/core/theme/colors.dart';
 
 class CommonElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
-  final String text;
+  final Widget child;
   final bool isLoading;
   final double? width;
   final Color color;
+  final Color textColor;
 
   const CommonElevatedButton({
     super.key,
     required this.onPressed,
-    required this.text,
+    required this.child,
     this.isLoading = false,
     this.width,
     this.color = AppColors.primaryColor,
+    this.textColor = AppColors.white,
   });
 
   @override
@@ -23,9 +25,7 @@ class CommonElevatedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         minimumSize:
-            width == null
-                ? Size(double.infinity,56)
-                : Size(width!,56),
+            width == null ? Size(double.infinity, 56) : Size(width!, 56),
       ),
       onPressed: isLoading ? null : onPressed,
       child: Builder(
@@ -37,7 +37,7 @@ class CommonElevatedButton extends StatelessWidget {
               child: CircularProgressIndicator(color: AppColors.white),
             );
           }
-          return Text(text);
+          return Center(child: child);
         },
       ),
     );

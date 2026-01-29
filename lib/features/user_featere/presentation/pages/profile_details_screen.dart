@@ -135,7 +135,7 @@ class __ProfileBodyState extends State<_ProfileBody> {
                       ),
                     );
                   },
-                  text: AppLocalizations.of(context)!.save,
+                  child: Text(AppLocalizations.of(context)!.save),
                 );
               },
             ),

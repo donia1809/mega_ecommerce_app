@@ -154,7 +154,7 @@ class _LoginScreenState extends State<_LoginBody> {
                       onPressed: () {
                         _login();
                       },
-                      text: AppLocalizations.of(context)!.login,
+                      child: Text(AppLocalizations.of(context)!.login),
                     ),
                   ],
                 ),

@@ -69,7 +69,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            
                             // SizedBox(
                             //   width: double.infinity,
                             //   child: Container(
@@ -103,7 +102,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   });
                                 }
                               },
-                              child: SvgPicture.asset(AppIcons.gallery),
+                              child: SvgPicture.asset(AppIcons.gallerySend),
                             ),
                             SizedBox(height: 8),
                             Text(
@@ -244,7 +243,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                   });
                                 }
                               },
-                              child: SvgPicture.asset(AppIcons.gallery),
+                              child: SvgPicture.asset(AppIcons.gallerySend),
                             ),
                             SizedBox(height: 8),
                             Text(
@@ -293,7 +292,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                               );
                             }
                           },
-                          text: AppLocalizations.of(context)!.addProduct,
+                          child: Text(AppLocalizations.of(context)!.addProduct),
                         );
                       },
                     ),

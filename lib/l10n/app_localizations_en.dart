@@ -372,4 +372,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exploreProducts => 'Explore Products';
+
+  @override
+  String get chatWithUs => 'Chat With Us';
+
+  @override
+  String get chats => 'Chats';
+
+  @override
+  String get typeyourMessage => 'Type Your message...';
 }

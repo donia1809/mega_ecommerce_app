@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart' ;
+import 'package:flutter/material.dart';
 import 'package:mega_ecommerce_app/common_widget/elevated_button.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
-class OnBoardingScreen extends StatelessWidget
-{
+class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
   @override
@@ -18,7 +17,8 @@ class OnBoardingScreen extends StatelessWidget
             height: double.infinity,
             color: Colors.blue,
           ),
-          Image.asset('assets/images/onBoarging.png',
+          Image.asset(
+            'assets/images/onBoarging.png',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -28,46 +28,45 @@ class OnBoardingScreen extends StatelessWidget
             left: 0,
             right: 0,
             child: Container(
-            width: double.infinity,
-            height: 300,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
+              width: double.infinity,
+              height: 300,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+                color: Colors.white,
               ),
-               color: Colors.white,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:
-                 [
-                  Text(
-                    AppLocalizations.of(context)!.lookGoodFeelGood,
-                    style: AppTextStyles.bold24
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.lookGoodFeelGood,
+                      style: AppTextStyles.bold24,
                     ),
 
-                  SizedBox(height:context.screenHeight * 0.02 ),
+                    SizedBox(height: context.screenHeight * 0.02),
 
-                  Text(
-                    AppLocalizations.of(context)!.createUniqueStyle,
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.regular15
-                  ),
+                    Text(
+                      AppLocalizations.of(context)!.createUniqueStyle,
+                      textAlign: TextAlign.center,
+                      style: AppTextStyles.regular15,
+                    ),
 
-                  SizedBox(height:context.screenHeight * 0.02 ),
+                    SizedBox(height: context.screenHeight * 0.02),
 
-                  CommonElevatedButton(
-                   onPressed: (){
-                     context.navigateTo('/loginScreen');
-                   },
-                   text: AppLocalizations.of(context)!.getStarted
-                  )
-                ],
+                    CommonElevatedButton(
+                      onPressed: () {
+                        context.navigateTo('/loginScreen');
+                      },
+                      child: Text(AppLocalizations.of(context)!.getStarted),
+                    ),
+                  ],
+                ),
               ),
             ),
-          )
           ),
         ],
       ),

@@ -22,6 +22,7 @@ import 'package:mega_ecommerce_app/core/network/dio_api_helper.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/di/authentication_di.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/auto_login/auto_login_cubit.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/di/cart_di.dart';
+import 'package:mega_ecommerce_app/features/chat_feature/di/chat_di.dart';
 import 'package:mega_ecommerce_app/features/favorite_feature/di/favourite_di.dart';
 import 'package:mega_ecommerce_app/features/notification_feature/di/notification_di.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/di/order_di.dart';
@@ -119,4 +120,5 @@ Future<void> init() async {
   requestDi();
   ownerDi();
   notificationDi();
+  chatDi();
 }

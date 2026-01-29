@@ -37,7 +37,7 @@ class ProductImageWidget extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
-              child: AppImage(path: image?.path ?? product.image),
+              child: Center(child: AppImage(path: image?.path ?? product.image,)),
 
               // Image.network(
               //   product.image,

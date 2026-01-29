@@ -38,9 +38,7 @@ class _VerifyAccountScreenState extends State<_Otpbody> {
   void _verifyAccount() {
     final isValidForm = _formKey.currentState?.validate() ?? false;
     if (isValidForm) {
-      final params = VerifyAccountParams(
-        otp: otpController.text,
-      );
+      final params = VerifyAccountParams(otp: otpController.text);
       context.read<VerifyAccountCubit>().verifyAccount(params);
     }
 
@@ -102,9 +100,8 @@ class _VerifyAccountScreenState extends State<_Otpbody> {
                       isLoading: state is VerifyAccountLoadingState,
                       onPressed: () {
                         _verifyAccount();
-
                       },
-                      text: AppLocalizations.of(context)!.verify,
+                      child: Text(AppLocalizations.of(context)!.verify),
                     ),
                   ],
                 ),

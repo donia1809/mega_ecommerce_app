@@ -1,5 +1,4 @@
 abstract class ApiHelper {
-
   Future<dynamic> getRequest({
     required String endPoint,
     Map<String, dynamic>? queryParameters,
@@ -10,6 +9,7 @@ abstract class ApiHelper {
     required String endPoint,
     Map<String, dynamic>? body,
     Map<String, String>? headers,
+    bool isFormData = false,
   });
 
   Future<dynamic> deleteRequest({

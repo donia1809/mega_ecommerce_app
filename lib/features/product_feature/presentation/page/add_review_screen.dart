@@ -62,7 +62,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                   SizedBox(height: 16),
                   CommonElevatedButton(
                     isLoading: state is AddReviewLoadingState,
-                    text: ('Submit Review'),
+                    child: Text('Submit Review'),
                     onPressed: () {
                       context.read<AddReviewCubit>().addReview(
                         AddReviewParams(

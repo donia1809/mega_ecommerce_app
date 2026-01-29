@@ -7,6 +7,7 @@ import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
+import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/domain/use_case/add_product_to_cart_use_case.dart';
@@ -121,19 +122,42 @@ class _ProductDetailsScreenBody extends StatelessWidget {
                     );
                   }
                   return isUser
-                      ? CommonElevatedButton(
-                        isLoading: state is AddToCartLoadingState,
-                        onPressed: () {
-                          {
-                            context.read<AddToCartCubit>().addToCart(
-                              AddProductToCartParams(
-                                productId: product.id,
-                                quantity: 1,
+                      ? Column(
+                        children: [
+                          CommonElevatedButton(
+                            isLoading: state is AddToCartLoadingState,
+                            onPressed: () {
+                              {
+                                context.read<AddToCartCubit>().addToCart(
+                                  AddProductToCartParams(
+                                    productId: product.id,
+                                    quantity: 1,
+                                  ),
+                                );
+                              }
+                            },
+                            child: Text(
+                              AppLocalizations.of(context)!.addToCart,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          CommonElevatedButton(
+                            textColor: AppColors.black,
+                            color: AppColors.containerBackground,
+                            onPressed: () {
+                              context.navigateTo(
+                                AppRoutes.chatDetailsScreen,
+                                arguments: product.owner.id,
+                              );
+                            },
+                            child: Text(
+                              AppLocalizations.of(context)!.chatWithUs,
+                              style: AppTextStyles.button18.copyWith(
+                                color: AppColors.black,
                               ),
-                            );
-                          }
-                        },
-                        text: AppLocalizations.of(context)!.addToCart,
+                            ),
+                          ),
+                        ],
                       )
                       : OwnerButtons(product: product);
                 },
@@ -160,7 +184,7 @@ class OwnerButtons extends StatelessWidget {
           Expanded(
             child: CommonElevatedButton(
               onPressed: () {},
-              text: AppLocalizations.of(context)!.editProduct,
+              child: Text(AppLocalizations.of(context)!.editProduct),
             ),
           ),
           SizedBox(width: 8),
@@ -193,7 +217,7 @@ class OwnerButtons extends StatelessWidget {
                       product.id,
                     );
                   },
-                  text: AppLocalizations.of(context)!.removeProduct,
+                  child: Text(AppLocalizations.of(context)!.removeProduct),
                 );
               },
             ),

@@ -4,7 +4,7 @@ import 'package:mega_ecommerce_app/common_widget/common_container_widget.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/features/notification_feature/domain/entity/notification_entity.dart';
-import 'package:mega_ecommerce_app/features/notification_feature/notification_router.dart';
+import 'package:mega_ecommerce_app/features/notification_feature/services/notification_router.dart';
 
 class NotificationListViewWidget extends StatelessWidget {
   final List<NotificationEntity> notifications;

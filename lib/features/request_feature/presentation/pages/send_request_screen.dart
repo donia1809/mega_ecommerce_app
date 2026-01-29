@@ -42,75 +42,77 @@ class _SendRequestScreenState extends State<SendRequestScreen> {
         create: (context) => sl<SendRequestCubit>(),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child:Form(
+          child: Form(
             key: _formKey,
-            child:  Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppLocalizations.of(context)!.requestBeStoreOwner,
-                style: AppTextStyles.bold15,
-              ),
-              SizedBox(height: 8),
-              Text(
-                AppLocalizations.of(context)!.welcomeRequestMessage,
-                style: AppTextStyles.medium15.copyWith(color: AppColors.grey),
-              ),
-              SizedBox(height: 16),
-              CommonTextFormFieldWidget(
-                hintText: AppLocalizations.of(context)!.describeYourBusiness,
-                lable: AppLocalizations.of(context)!.business,
-                controller: _controller,
-                validator: (text) {
-                  if (text == null || text.trim().isEmpty == true) {
-                    return AppLocalizations.of(
-                      context,
-                    )!.pleaseEnterYourBusinessDescribtion;
-                  }
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.requestBeStoreOwner,
+                  style: AppTextStyles.bold15,
+                ),
+                SizedBox(height: 8),
+                Text(
+                  AppLocalizations.of(context)!.welcomeRequestMessage,
+                  style: AppTextStyles.medium15.copyWith(color: AppColors.grey),
+                ),
+                SizedBox(height: 16),
+                CommonTextFormFieldWidget(
+                  hintText: AppLocalizations.of(context)!.describeYourBusiness,
+                  lable: AppLocalizations.of(context)!.business,
+                  controller: _controller,
+                  validator: (text) {
+                    if (text == null || text.trim().isEmpty == true) {
+                      return AppLocalizations.of(
+                        context,
+                      )!.pleaseEnterYourBusinessDescribtion;
+                    }
 
-                  return null;
-                },
-              ),
+                    return null;
+                  },
+                ),
 
-              Spacer(),
-              BlocConsumer<SendRequestCubit, ISendRequestState>(
-                listener: (context, state) {
-                  if (state is SendRequestSuccessState) {
-                    showSnackBar(
-                      context: context,
-                      message: 'sent Request Successfilly',
-                      color: AppColors.green,
-                    );
-                  }
-                },
+                Spacer(),
+                BlocConsumer<SendRequestCubit, ISendRequestState>(
+                  listener: (context, state) {
+                    if (state is SendRequestSuccessState) {
+                      showSnackBar(
+                        context: context,
+                        message: 'sent Request Successfilly',
+                        color: AppColors.green,
+                      );
+                    }
+                  },
 
-                builder: (context, state) {
-                  if (state is SendRequestFailureState) {
-                    return AppFailureWidget(
-                      message: state.failure.message,
+                  builder: (context, state) {
+                    if (state is SendRequestFailureState) {
+                      return AppFailureWidget(
+                        message: state.failure.message,
+                        onPressed: () {
+                          context.read<SendRequestCubit>().sendRequest(
+                            RequestParams(message: _controller.text),
+                          );
+                        },
+                      );
+                    }
+                    return CommonElevatedButton(
+                      isLoading: state is SendRequestLoadingState,
                       onPressed: () {
-                        context.read<SendRequestCubit>().sendRequest(
-                          RequestParams(message: _controller.text),
-                        );
+                        if (_formKey.currentState!.validate()) {
+                          context.read<SendRequestCubit>().sendRequest(
+                            RequestParams(message: _controller.text),
+                          );
+                        }
                       },
+                      child: Text(AppLocalizations.of(context)!.sendRequest),
                     );
-                  }
-                  return CommonElevatedButton(
-                    isLoading: state is SendRequestLoadingState,
-                    onPressed: () {
-                      if(_formKey.currentState!.validate())
-                      {context.read<SendRequestCubit>().sendRequest(
-                        RequestParams(message: _controller.text),
-                      );}
-                    },
-                    text: AppLocalizations.of(context)!.sendRequest,
-                  );
-                },
-              ),
-              SizedBox(height: 8),
-            ],
+                  },
+                ),
+                SizedBox(height: 8),
+              ],
+            ),
           ),
-        )),
+        ),
       ),
     );
   }

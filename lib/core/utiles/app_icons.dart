@@ -1,6 +1,5 @@
 class AppIcons {
   const AppIcons._();
-
   static const String cart = 'assets/icons/cart.svg';
   static const String favourite = 'assets/icons/fav.svg';
   static const String fav = 'assets/icons/fav.svg';
@@ -23,9 +22,17 @@ class AppIcons {
   static const String delete = 'assets/icons/delete.svg';
   static const String shoppingBag = 'assets/icons/shopping_bag.svg';
   static const String shop = 'assets/icons/shop.svg';
-  static const String gallery = 'assets/icons/gallery_send.svg';
+  static const String gallerySend = 'assets/icons/gallery_send.svg';
   static const String gift = 'assets/icons/gift.svg';
   static const String reminder = 'assets/icons/reminder.svg';
   static const String order = 'assets/icons/order.svg';
   static const String system = 'assets/icons/system.svg';
+  static const String send = 'assets/icons/send_icon.svg';
+  static const String link = 'assets/icons/link.svg';
+  static const String audio = 'assets/icons/audio.svg';
+  static const String camera = 'assets/icons/camera.svg';
+  static const String document = 'assets/icons/document.svg';
+  static const String gallery = 'assets/icons/gallery.svg';
+  static const String location = 'assets/icons/location.svg';
+  static const String polling = 'assets/icons/polling.svg';
 }

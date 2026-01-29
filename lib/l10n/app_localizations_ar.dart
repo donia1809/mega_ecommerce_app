@@ -372,4 +372,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exploreProducts => 'استكشف المنتجات';
+
+  @override
+  String get chatWithUs => 'تواصل معنا';
+
+  @override
+  String get chats => 'المحادثات';
+
+  @override
+  String get typeyourMessage => 'قم بكتابة رسالتك...';
 }

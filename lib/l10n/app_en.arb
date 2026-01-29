@@ -134,5 +134,8 @@
   "productDeletedSuccessfuly":"Product Deleted Successfuly",
   "silenceIsGolden":"Silence is golden, but deals are better",
   "weWellLetYou":"We'll let you know when something exciting happens.",
-  "exploreProducts":"Explore Products"
+  "exploreProducts":"Explore Products",
+  "chatWithUs":"Chat With Us",
+  "chats":"Chats",
+  "typeyourMessage":"Type Your message..."
 }

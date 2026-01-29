@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/login/login_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/otp/otp_screen.dart';
+import 'package:mega_ecommerce_app/features/chat_feature/presentation/pages/all_chats_screen.dart';
+import 'package:mega_ecommerce_app/features/chat_feature/presentation/pages/chat_details_screen.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/check_out_screen.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/my_orders_screens.dart';
 import 'package:mega_ecommerce_app/features/orders_feature/presentation/pages/order_datails_screen.dart';
@@ -58,6 +60,8 @@ class AppRoutes {
   static const String sendRequestScreen = '/sendRequestScreen';
   static const String myStoreProductScreen = '/myStoreProductScreen';
   static const String addProductScreen = '/addProductScreen';
+  static const String allChatsScreen = '/allChatsScreen';
+  static const String chatDetailsScreen = '/chatDetailsScreen';
 
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     final Widget child;
@@ -148,6 +152,13 @@ class AppRoutes {
 
       case addProductScreen:
         child = AddProductScreen();
+
+      case allChatsScreen:
+        child = const AllChatsScreen();
+
+      case chatDetailsScreen:
+      final userId = settings.arguments as String;
+        child = ChatDetailsScreen(userId:userId);
 
       default:
         child = const OnBoardingScreen();

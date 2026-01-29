@@ -27,15 +27,17 @@ class NotificationRouter {
 
       case NotificationEnum.product:
       case NotificationEnum.announcement:
-        context.navigateTo(
-          AppRoutes.productDetailsScreen,
-          arguments: data,
-        );
+        context.navigateTo(AppRoutes.productDetailsScreen, arguments: data);
+
+        break;
+      case NotificationEnum.chat:
+        context.navigateTo(AppRoutes.chatDetailsScreen, arguments: data);
 
         break;
 
       case NotificationEnum.system:
       case NotificationEnum.reminder:
+      case NotificationEnum.review:
         // do nothing
         break;
     }

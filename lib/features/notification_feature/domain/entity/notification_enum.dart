@@ -1,4 +1,3 @@
-
 import '../../../../core/utiles/app_icons.dart';
 
 enum NotificationEnum {
@@ -6,7 +5,9 @@ enum NotificationEnum {
   product('PRODUCT'),
   announcement('ANNOUNCEMENT'),
   reminder('REMINDER'),
-  system('SYSTEM');
+  system('SYSTEM'),
+  chat('CHAT'),
+  review('REVIEW');
 
   final String value;
   const NotificationEnum(this.value);
@@ -18,7 +19,7 @@ enum NotificationEnum {
     );
   }
 
- String get icon {
+  String get icon {
     switch (this) {
       case NotificationEnum.order:
         return AppIcons.order;
@@ -34,9 +35,12 @@ enum NotificationEnum {
 
       case NotificationEnum.system:
         return AppIcons.system;
+
+      case NotificationEnum.review:
+        return AppIcons.order;
+        
+      case NotificationEnum.chat:
+        return AppIcons.order;
     }
   }
 }
-
-
-

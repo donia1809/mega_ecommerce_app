@@ -14,7 +14,7 @@ import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class MyStoreProductScreen extends StatelessWidget {
   final XFile? image;
-  const MyStoreProductScreen({super.key,this.image});
+  const MyStoreProductScreen({super.key, this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +104,7 @@ class MyStoreProductScreen extends StatelessWidget {
                         onPressed: () {
                           context.navigateTo(AppRoutes.addProductScreen);
                         },
-                        text: AppLocalizations.of(context)!.addProduct,
+                        child: Text(AppLocalizations.of(context)!.addProduct),
                       ),
                     ],
                   ),

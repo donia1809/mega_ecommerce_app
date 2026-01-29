@@ -99,7 +99,7 @@ class CheckOutButton extends StatelessWidget {
             onPressed: () {
               context.read<CheckOutCubit>().checkOut();
             },
-            text: AppLocalizations.of(context)!.checkOut,
+            child: Text(AppLocalizations.of(context)!.checkOut),
           );
         },
       ),

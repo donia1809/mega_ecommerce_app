@@ -5,7 +5,7 @@ typedef Validator = String? Function(String? text);
 
 class CommonTextFormFieldWidget extends StatefulWidget {
   final String hintText;
-  final String lable;
+  final String? lable;
   final TextEditingController? controller;
   final Validator? validator;
   final bool securedPassword;
@@ -13,8 +13,8 @@ class CommonTextFormFieldWidget extends StatefulWidget {
   const CommonTextFormFieldWidget({
     super.key,
     required this.hintText,
-    required this.lable,
-    required this.controller,
+     this.lable,
+     this.controller,
      this.validator,
     this.securedPassword = false,
   });
@@ -43,7 +43,7 @@ class _CommonTextFormFieldWidgetState extends State<CommonTextFormFieldWidget> {
               ? TextInputType.visiblePassword
               : TextInputType.text,
       decoration: InputDecoration(
-        label: Text(widget.lable),
+        label: Text(widget.lable??''),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         labelStyle: AppTextStyles.regular13,
         hintText: widget.hintText,

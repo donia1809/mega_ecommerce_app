@@ -98,7 +98,7 @@ class _VerifyEmailScreenState extends State<_VerifyEmailBody> {
                       onPressed: () {
                         _verifyAccount();
                       },
-                      text: AppLocalizations.of(context)!.verify,
+                      child: Text(AppLocalizations.of(context)!.verify),
                     ),
                   ],
                 ),

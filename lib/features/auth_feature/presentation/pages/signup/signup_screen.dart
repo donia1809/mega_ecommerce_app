@@ -39,7 +39,8 @@ class _SignupScreenState extends State<_SignupBody> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   void _signUp() {
     final isValidForm = _formKey.currentState?.validate() ?? false;
@@ -110,7 +111,8 @@ class _SignupScreenState extends State<_SignupBody> {
                       SizedBox(height: context.screenHeight * 0.03),
 
                       ConfirmPasswordTextFormField(
-                        controller: confirmPasswordController, oldPasswordController: passwordController,
+                        controller: confirmPasswordController,
+                        oldPasswordController: passwordController,
                       ),
 
                       ////////////////////////////////////////////////////////////////////////////////
@@ -121,7 +123,7 @@ class _SignupScreenState extends State<_SignupBody> {
                         onPressed: () {
                           _signUp();
                         },
-                        text: AppLocalizations.of(context)!.signUp,
+                        child: Text(AppLocalizations.of(context)!.signUp),
                       ),
                     ],
                   ),

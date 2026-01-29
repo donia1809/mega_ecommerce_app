@@ -60,5 +60,7 @@ class AppTheme {
       titleTextStyle: AppTextStyles.regular15.copyWith(color: AppColors.black)
     ),
 
+    
+
   );
 }

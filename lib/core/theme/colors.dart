@@ -10,4 +10,6 @@ class AppColors {
   static const Color red = Color.fromRGBO(236, 45, 48, 1);
   static const Color grey = Color.fromRGBO(143, 149, 158, 1);
   static const Color containerBackground = Color.fromRGBO(245, 246, 250, 1);
+  static const Color iconBackground = Color.fromRGBO(0, 95, 249, 0.1);
+
 }

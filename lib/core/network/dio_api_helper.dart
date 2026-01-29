@@ -51,13 +51,17 @@ class DioApiHelper implements ApiHelper {
     required String endPoint,
     Map<String, dynamic>? body,
     Map<String, String>? headers,
+    bool isFormData = false,
   }) async {
     try {
       await _addTokenToHeaders();
+      
+      final data = isFormData && body != null ? FormData.fromMap(body) : body;
+
       final response = await _dio.post(
         endPoint,
-        data: body,
-        // options: Options(headers: headers),
+        data: data,
+        options: Options(headers: headers),
       );
       return response.data;
     } catch (e) {

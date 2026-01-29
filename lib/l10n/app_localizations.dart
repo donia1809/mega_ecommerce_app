@@ -820,6 +820,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Explore Products'**
   String get exploreProducts;
+
+  /// No description provided for @chatWithUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat With Us'**
+  String get chatWithUs;
+
+  /// No description provided for @chats.
+  ///
+  /// In en, this message translates to:
+  /// **'Chats'**
+  String get chats;
+
+  /// No description provided for @typeyourMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Type Your message...'**
+  String get typeyourMessage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

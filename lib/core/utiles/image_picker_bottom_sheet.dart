@@ -10,28 +10,32 @@ Future<XFile?> showImagePickerBottomSheet({
     return await showModalBottomSheet<XFile>(
       context: context,
       builder: (_) {
-        return Center(
-          child: Column(
-            children: [
-              ListTile(
-                title: const Text('Camera'),
-                onTap: () async {
-                  final image = await imagePicker.pickImage(
-                    source: ImageSource.camera,
-                  );
-                  context.navigateBack<XFile>(image);
-                },
-              ),
-              ListTile(
-                title: const Text('Gallery'),
-                onTap: () async {
-                  final image = await imagePicker.pickImage(
-                    source: ImageSource.gallery,
-                  );
-                  context.navigateBack<XFile>(image);
-                },
-              ),
-            ],
+        return SizedBox(
+          width: double.infinity,
+          height: 200,
+          child: Center(
+            child: Column(
+              children: [
+                ListTile(
+                  title: const Text('Camera'),
+                  onTap: () async {
+                    final image = await imagePicker.pickImage(
+                      source: ImageSource.camera,
+                    );
+                    context.navigateBack<XFile>(image);
+                  },
+                ),
+                ListTile(
+                  title: const Text('Gallery'),
+                  onTap: () async {
+                    final image = await imagePicker.pickImage(
+                      source: ImageSource.gallery,
+                    );
+                    context.navigateBack<XFile>(image);
+                  },
+                ),
+              ],
+            ),
           ),
         );
       },

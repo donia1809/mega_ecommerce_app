@@ -14,7 +14,7 @@ class CheckOutScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal:16.0,vertical: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,7 +25,10 @@ class CheckOutScreen extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.topCenter,
                     children: [
-                      Image.asset(AppImages.confirmationBg, fit: BoxFit.contain),
+                      Image.asset(
+                        AppImages.confirmationBg,
+                        fit: BoxFit.contain,
+                      ),
                       Image.asset(AppImages.confirmation, fit: BoxFit.contain),
                     ],
                   ),
@@ -36,22 +39,22 @@ class CheckOutScreen extends StatelessWidget {
                   'Your order has been confirmed, we will send you confirmation email shortly.',
                   style: AppTextStyles.regular15,
                 ),
-        
-                SizedBox(height: 40,),
+
+                SizedBox(height: 40),
                 CommonElevatedButton(
                   onPressed: () {
                     context.navigateTo(AppRoutes.myOrdersScreen);
                   },
-                  text: AppLocalizations.of(context)!.goToOrders,
+                  child: Text(AppLocalizations.of(context)!.goToOrders),
                 ),
-        
-                SizedBox(height: 16,),
-        
+
+                SizedBox(height: 16),
+
                 CommonElevatedButton(
                   onPressed: () {
                     context.navigateTo(AppRoutes.home);
                   },
-                  text: AppLocalizations.of(context)!.continueShopping,
+                  child: Text(AppLocalizations.of(context)!.continueShopping),
                 ),
               ],
             ),

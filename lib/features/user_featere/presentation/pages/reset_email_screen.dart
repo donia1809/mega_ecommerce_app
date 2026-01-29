@@ -105,9 +105,9 @@ class _ResetEmailScreenBodyState extends State<_ResetEmailScreenBody> {
                         );
                       }
                       return CommonElevatedButton(
-                    isLoading: state is UpdateEmailLoadingState,
+                        isLoading: state is UpdateEmailLoadingState,
                         onPressed: () => _submit(context),
-                        text: AppLocalizations.of(context)!.next,
+                        child: Text(AppLocalizations.of(context)!.next),
                       );
                     },
                   ),

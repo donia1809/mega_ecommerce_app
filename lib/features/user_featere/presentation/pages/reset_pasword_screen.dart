@@ -131,7 +131,7 @@ class _ResetPasswordScreenBodyState extends State<_ResetPasswordScreenBody> {
                   return CommonElevatedButton(
                     isLoading: state is UpdatePasswordLoadingState,
                     onPressed: () => _submit(context),
-                    text: AppLocalizations.of(context)!.resetPassword,
+                    child: Text(AppLocalizations.of(context)!.resetPassword),
                   );
                 },
               ),

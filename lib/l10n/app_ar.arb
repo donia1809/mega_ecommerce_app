@@ -134,5 +134,8 @@
   "productDeletedSuccessfuly":"تم حذف المنتج بنجاح",
   "silenceIsGolden":"الصمت من ذهب، لكن العروض أفضل",
   "weWellLetYou":"سوف نخبرك عندما يحدث شيء مثير",
-  "exploreProducts":"استكشف المنتجات"
+  "exploreProducts":"استكشف المنتجات",
+  "chatWithUs":"تواصل معنا",
+  "chats":"المحادثات",
+  "typeyourMessage":"قم بكتابة رسالتك..."
 }
