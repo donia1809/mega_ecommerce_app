@@ -7,7 +7,6 @@ import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update
 part 'update_profile_state.dart';
 
 class UpdateProfileCubit extends Cubit<IUpdateProfileState> {
-  //ToDo: cache user
   final UpdateProfileUseCase _updateUserProfileUseCase;
   UpdateProfileCubit(this._updateUserProfileUseCase)
     : super(UpdateProfileInitialState());

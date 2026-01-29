@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/auto_login/auto_login_widget.dart';
-import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/user_profile/user_profile_cubit.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
 
 class HeaderWidget extends StatelessWidget {
@@ -14,9 +11,11 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<UserProfileCubit>()..getProfile(),
-      child: ListTile(
+    return 
+    // BlocProvider(
+    //   create: (context) => sl<UserProfileCubit>()..getProfile(),
+    //  child:
+       ListTile(
         contentPadding: EdgeInsets.zero,
         trailing: Container(
           width: 45,
@@ -39,14 +38,16 @@ class HeaderWidget extends StatelessWidget {
         ),
         title: AppAutoLoginWidget(
           authenticatedBuilder: (user) {
-            return Text(
-              AppLocalizations.of(context)!.helloUser(user.name),
-              style: AppTextStyles.bold28,
+            return Flexible(
+              child: Text(
+                AppLocalizations.of(context)!.helloUser(user.name),
+                style: AppTextStyles.bold28,
+              ),
             );
           },
         ),
         subtitle: Text(AppLocalizations.of(context)!.welcomeToMega),
-      ),
+    //  ),
     );
   }
 }

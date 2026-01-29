@@ -34,7 +34,6 @@ class LoginCubit extends Cubit<ILoginState> {
 
       await _saveUserUseCase(cachedUser);
       await _saveTokenUseCase(token);
-
       emit(LoginSuccessState(data: auth));
     });
     // emit(LoginInitalState());

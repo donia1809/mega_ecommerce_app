@@ -10,6 +10,7 @@ import 'package:mega_ecommerce_app/core/theme/colors.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/domain/use_case/login_use_case.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/auto_login/auto_login_cubit.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/cubits/login/login_cubit.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/login/widget/rich_text_widget.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
@@ -62,6 +63,7 @@ class _LoginScreenState extends State<_LoginBody> {
                 message: state.failure.message,
               );
             case LoginSuccessState():
+            context.read<AutoLoginCubit>().autoLogin();
               final user = state.data;
               context.navigateTo(AppRoutes.home, arguments: user);
               break;
