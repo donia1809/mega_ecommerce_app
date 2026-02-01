@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:mega_ecommerce_app/core/network/failures/failure.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/domain/entity/verification_code_enum.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/domain/repo/auth_repo.dart';
 
 class VerifyAccountUseCase {
@@ -14,7 +15,8 @@ class VerifyAccountUseCase {
 
 class VerifyAccountParams {
   final String otp;
-  VerifyAccountParams({ required this.otp});
+  final VerificationCodeEnum verificationCode;
+  VerifyAccountParams( { required this.verificationCode,required this.otp});
   Map<String, dynamic> get toMap {
     return {
       'code':otp,

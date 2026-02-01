@@ -838,6 +838,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Type Your message...'**
   String get typeyourMessage;
+
+  /// No description provided for @camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get camera;
+
+  /// No description provided for @document.
+  ///
+  /// In en, this message translates to:
+  /// **'Document'**
+  String get document;
+
+  /// No description provided for @galery.
+  ///
+  /// In en, this message translates to:
+  /// **'Galery'**
+  String get galery;
+
+  /// No description provided for @audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio'**
+  String get audio;
+
+  /// No description provided for @location.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get location;
+
+  /// No description provided for @polling.
+  ///
+  /// In en, this message translates to:
+  /// **'polling'**
+  String get polling;
+
+  /// No description provided for @emptyCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty Cart,\nPlease add items to Your Cart...'**
+  String get emptyCart;
+
+  /// No description provided for @emptyFavourite.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty Favourites,\nPlease add Your Favoutite items...'**
+  String get emptyFavourite;
+
+  /// No description provided for @writeYourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please write your email to receive a confirmation code to set a new password.'**
+  String get writeYourEmail;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

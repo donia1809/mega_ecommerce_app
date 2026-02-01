@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/domain/entity/verification_code_enum.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/forget_password/forget_password_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/login/login_screen.dart';
 import 'package:mega_ecommerce_app/features/auth_feature/presentation/pages/otp/otp_screen.dart';
 import 'package:mega_ecommerce_app/features/chat_feature/presentation/pages/all_chats_screen.dart';
@@ -38,6 +40,7 @@ class AppRoutes {
   static const String signupScreen = '/signupScreen';
   static const String otpScreen = '/otpScreen';
   static const String resetPasswordScreen = '/resetPasswordScreen';
+  static const String forgetPasswordScreen = '/forgetPasswordScreen';
   static const String updateEmailScreen = '/updateEmailScreen';
   static const String home = '/home';
   static const String homeScreen = '/homeScreen';
@@ -79,7 +82,11 @@ class AppRoutes {
         child = const SignupScreen();
 
       case otpScreen:
-        child = const OtpScreen();
+        final verificationCode = settings.arguments as VerificationCodeEnum;
+        child = OtpScreen(verificationCode: verificationCode);
+
+      case forgetPasswordScreen:
+        child = const ForgetPasswordScreen();
 
       case resetPasswordScreen:
         child = const ResetPaswordScreen();
@@ -157,8 +164,8 @@ class AppRoutes {
         child = const AllChatsScreen();
 
       case chatDetailsScreen:
-      final userId = settings.arguments as String;
-        child = ChatDetailsScreen(userId:userId);
+        final userId = settings.arguments as String;
+        child = ChatDetailsScreen(userId: userId);
 
       default:
         child = const OnBoardingScreen();

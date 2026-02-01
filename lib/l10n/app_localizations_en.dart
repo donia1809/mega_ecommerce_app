@@ -381,4 +381,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get typeyourMessage => 'Type Your message...';
+
+  @override
+  String get camera => 'Camera';
+
+  @override
+  String get document => 'Document';
+
+  @override
+  String get galery => 'Galery';
+
+  @override
+  String get audio => 'Audio';
+
+  @override
+  String get location => 'Location';
+
+  @override
+  String get polling => 'polling';
+
+  @override
+  String get emptyCart => 'Empty Cart,\nPlease add items to Your Cart...';
+
+  @override
+  String get emptyFavourite => 'Empty Favourites,\nPlease add Your Favoutite items...';
+
+  @override
+  String get writeYourEmail => 'Please write your email to receive a confirmation code to set a new password.';
 }

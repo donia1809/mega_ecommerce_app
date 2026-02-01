@@ -126,8 +126,7 @@ class _SendMessageWidgetState extends State<SendMessageWidget> {
                     });
                   }
                 },
-                child: UnconstrainedBox //(child: Icon(Icons.send, size: 22)),
-                (
+                child: UnconstrainedBox(
                   child: SvgPicture.asset(
                     AppIcons.send,
                     colorFilter: ColorFilter.mode(
@@ -151,7 +150,7 @@ class _SendMessageWidgetState extends State<SendMessageWidget> {
         return SafeArea(
           child: SizedBox(
             width: double.infinity,
-            height: 200,
+            height: 250,
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 24, horizontal: 32),
               child: Column(
@@ -160,65 +159,26 @@ class _SendMessageWidgetState extends State<SendMessageWidget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        radius: 32,
-                        backgroundColor: AppColors.iconBackground,
-                        child: IconButton(
-                          onPressed: () async {
-                            final image = await showImagePickerBottomSheet(
-                              context: context,
-                            );
-                            context.navigateBack(image);
-                            //Navigator.pop(context, image);
-                          },
-                          icon: SvgPicture.asset(
-                            AppIcons.camera,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.primaryColor,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          // Icon(
-                          //   Icons.camera_enhance,
-                          //   color: AppColors.primaryColor,
-                          // ),
-                        ),
+                      _CircleAvatarWidget(
+                        onPressed: () async {
+                          final image = await showImagePickerBottomSheet(
+                            context: context,
+                          );
+                          context.navigateBack(image);
+                        },
+                        icon: AppIcons.camera,
+                        iconName: AppLocalizations.of(context)!.camera,
                       ),
-                      CircleAvatar(
-                        radius: 32,
-                        backgroundColor: AppColors.iconBackground,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                            AppIcons.document,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.primaryColor,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          // Icon(
-                          //   Icons.document_scanner,
-                          //   color: AppColors.primaryColor,
-                          // ),
-                        ),
+                      _CircleAvatarWidget(
+                        onPressed: () {},
+                        icon: AppIcons.document,
+                        iconName: AppLocalizations.of(context)!.document,
+
                       ),
-                      CircleAvatar(
-                        radius: 32,
-                        backgroundColor: AppColors.iconBackground,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                            AppIcons.gallery,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.primaryColor,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          // Icon(
-                          //   Icons.browse_gallery,
-                          //   color: AppColors.primaryColor,
-                          // ),
-                        ),
+                      _CircleAvatarWidget(
+                        onPressed: () {},
+                        icon: AppIcons.gallery,
+                        iconName: AppLocalizations.of(context)!.galery,
                       ),
                     ],
                   ),
@@ -226,59 +186,21 @@ class _SendMessageWidgetState extends State<SendMessageWidget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        radius: 32,
-                        backgroundColor: AppColors.iconBackground,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                            AppIcons.polling,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.primaryColor,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          // Icon(
-                          //   Icons.poll_outlined,
-                          //   color: AppColors.primaryColor,
-                          // ),
-                        ),
+                      _CircleAvatarWidget(
+                        onPressed: () {},
+                        icon: AppIcons.polling,
+                        iconName: AppLocalizations.of(context)!.polling,
                       ),
-                      CircleAvatar(
-                        radius: 32,
-                        backgroundColor: AppColors.iconBackground,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                            AppIcons.location,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.primaryColor,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          // Icon(
-                          //   Icons.location_history,
-                          //   color: AppColors.primaryColor,
-                          // ),
-                        ),
+
+                      _CircleAvatarWidget(
+                        onPressed: () {},
+                        icon: AppIcons.location,
+                        iconName: AppLocalizations.of(context)!.location,
                       ),
-                      CircleAvatar(
-                        radius: 32,
-                        backgroundColor: AppColors.iconBackground,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                            AppIcons.audio,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.primaryColor,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                          // Icon(
-                          //   Icons.audiotrack,
-                          //   color: AppColors.primaryColor,
-                          // ),
-                        ),
+                      _CircleAvatarWidget(
+                        onPressed: () {},
+                        icon: AppIcons.audio,
+                        iconName: AppLocalizations.of(context)!.audio,
                       ),
                     ],
                   ),
@@ -288,6 +210,39 @@ class _SendMessageWidgetState extends State<SendMessageWidget> {
           ),
         );
       },
+    );
+  }
+}
+
+class _CircleAvatarWidget extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String icon;
+  final String iconName;
+  const _CircleAvatarWidget({required this.onPressed, required this.icon, required this.iconName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 32,
+          backgroundColor: AppColors.iconBackground,
+          child: IconButton(
+            onPressed: onPressed,
+            icon: SvgPicture.asset(
+              icon,
+              colorFilter: ColorFilter.mode(
+                AppColors.primaryColor,
+                BlendMode.srcIn,
+              ),
+            ),
+          ),
+        ),
+
+        SizedBox(height: 4),
+
+        Text(iconName,style: AppTextStyles.regular13.copyWith(color: AppColors.black),),
+      ],
     );
   }
 }

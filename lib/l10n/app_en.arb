@@ -137,5 +137,14 @@
   "exploreProducts":"Explore Products",
   "chatWithUs":"Chat With Us",
   "chats":"Chats",
-  "typeyourMessage":"Type Your message..."
+  "typeyourMessage":"Type Your message...",
+  "camera":"Camera",
+  "document":"Document",
+  "galery":"Galery",
+  "audio":"Audio",
+  "location":"Location",
+  "polling":"polling",
+  "emptyCart":"Empty Cart,\nPlease add items to Your Cart...",
+  "emptyFavourite":"Empty Favourites,\nPlease add Your Favoutite items...",
+  "writeYourEmail":"Please write your email to receive a confirmation code to set a new password."
 }

@@ -28,6 +28,13 @@ class FavoriteScreen extends StatelessWidget {
           if (state is GetFavoriteLoadingState) {
             return Center(child: AppLoadingWidget());
           } else if (state is GetFavoriteSeccessState) {
+            if (state.products.isEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:16.0),
+                  child: Center(child: Text(AppLocalizations.of(context)!.emptyFavourite,
+                  style: AppTextStyles.bold15.copyWith(fontSize: 24),)),
+                );
+              }
             return Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(

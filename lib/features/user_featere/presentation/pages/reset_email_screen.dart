@@ -8,6 +8,7 @@ import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
 import 'package:mega_ecommerce_app/core/theme/text_style.dart';
+import 'package:mega_ecommerce_app/features/auth_feature/domain/entity/verification_code_enum.dart';
 import 'package:mega_ecommerce_app/features/user_featere/domain/use_cases/update_email_ue_case.dart';
 import 'package:mega_ecommerce_app/features/user_featere/presentation/cubits/update_email/update_email_cubit.dart';
 import 'package:mega_ecommerce_app/l10n/app_localizations.dart';
@@ -69,7 +70,7 @@ class _ResetEmailScreenBodyState extends State<_ResetEmailScreenBody> {
     return BlocListener<UpdateEmailCubit, IUpdateEmailState>(
       listener: (context, state) {
         if (state is UpdateEmailSuccessState) {
-          context.navigateTo(AppRoutes.verifyEmailScreen);
+          context.navigateTo(AppRoutes.otpScreen,arguments: VerificationCodeEnum.verifyEmail);
         }
       },
       child: SingleChildScrollView(

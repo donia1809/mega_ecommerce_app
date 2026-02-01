@@ -381,4 +381,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get typeyourMessage => 'قم بكتابة رسالتك...';
+
+  @override
+  String get camera => 'كاميرا';
+
+  @override
+  String get document => 'ملف';
+
+  @override
+  String get galery => 'صورة';
+
+  @override
+  String get audio => 'تسجيل صوتي';
+
+  @override
+  String get location => 'مكان';
+
+  @override
+  String get polling => 'اقتراح';
+
+  @override
+  String get emptyCart => 'السلة فارغة,\nمن فضلك قم باضافة منتجات للسلة ...';
+
+  @override
+  String get emptyFavourite => 'قائمة المفضلات فارغة,\nمن فضلك اضف عناصرك المفضلة ...';
+
+  @override
+  String get writeYourEmail => 'من فضلك ادخل البريد الالكتروني الخاص بك ليصلك رمز التحقق لتغير كلمة المرور';
 }

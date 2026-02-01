@@ -73,92 +73,94 @@ class _LoginScreenState extends State<_LoginBody> {
         },
         builder: (context, state) {
           return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 100, left: 16, right: 16),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    Center(
-                      child: Text(
-                        AppLocalizations.of(context)!.login,
-                        style: AppTextStyles.bold24,
-                      ),
-                    ),
-
-                    SizedBox(height: context.screenHeight * 0.02),
-
-                    ////////////////////////////////////////////////////////////////////////////////
-                    EmailTextFormField(controller: emailController),
-                    SizedBox(height: context.screenHeight * 0.03),
-
-                    ////////////////////////////////////////////////////////////////////////////////
-                    PasswordTextFormField(password: passwordController),
-                    SizedBox(height: context.screenHeight * 0.03),
-
-                    ////////////////////////////////////////////////////////////////////////////////
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          context.navigateTo(AppRoutes.resetPasswordScreen);
-                        },
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 100, left: 16, right: 16),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      Center(
                         child: Text(
-                          AppLocalizations.of(context)!.forgetPassword,
-                          style: AppTextStyles.button18.copyWith(
-                            color: AppColors.red,
+                          AppLocalizations.of(context)!.login,
+                          style: AppTextStyles.bold24,
+                        ),
+                      ),
+              
+                      SizedBox(height: context.screenHeight * 0.02),
+              
+                      ////////////////////////////////////////////////////////////////////////////////
+                      EmailTextFormField(controller: emailController),
+                      SizedBox(height: context.screenHeight * 0.03),
+              
+                      ////////////////////////////////////////////////////////////////////////////////
+                      PasswordTextFormField(password: passwordController),
+                      SizedBox(height: context.screenHeight * 0.03),
+              
+                      ////////////////////////////////////////////////////////////////////////////////
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {
+                            context.navigateTo(AppRoutes.forgetPasswordScreen);
+                          },
+                          child: Text(
+                            AppLocalizations.of(context)!.forgetPassword,
+                            style: AppTextStyles.button18.copyWith(
+                              color: AppColors.red,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: context.screenHeight * 0.06),
-                    Divider(),
-                    SizedBox(height: context.screenHeight * 0.01),
-
-                    ////////////////////////////////////////////////////////////////////////////////
-                    Align(
-                      alignment:
-                          Directionality.of(context) == TextDirection.rtl
-                              ? Alignment.centerRight
-                              : Alignment.centerLeft,
-                      child: InkWell(
-                        onTap: () {
-                          context.navigateTo('/signupScreen');
-                        },
-                        child: RichTextWidget(
-                          text1:
-                              AppLocalizations.of(context)!.alreadyHaveAccount,
-                          clicableText: AppLocalizations.of(context)!.signUp,
+                      SizedBox(height: context.screenHeight * 0.06),
+                      Divider(),
+                      SizedBox(height: context.screenHeight * 0.01),
+              
+                      ////////////////////////////////////////////////////////////////////////////////
+                      Align(
+                        alignment:
+                            Directionality.of(context) == TextDirection.rtl
+                                ? Alignment.centerRight
+                                : Alignment.centerLeft,
+                        child: InkWell(
+                          onTap: () {
+                            context.navigateTo('/signupScreen');
+                          },
+                          child: RichTextWidget(
+                            text1:
+                                AppLocalizations.of(context)!.alreadyHaveAccount,
+                            clicableText: AppLocalizations.of(context)!.signUp,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: context.screenHeight * 0.01),
-                    Divider(),
-                    SizedBox(height: context.screenHeight * 0.01),
-
-                    ////////////////////////////////////////////////////////////////////////////////
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: RichTextWidget(
-                        text1:
-                            AppLocalizations.of(
-                              context,
-                            )!.exploreAppToGetAlittleKnowAboutFeaturesWithOutCredationals,
-                        clicableText:
-                            AppLocalizations.of(context)!.continueAsGuest,
+                      SizedBox(height: context.screenHeight * 0.01),
+                      Divider(),
+                      SizedBox(height: context.screenHeight * 0.01),
+              
+                      ////////////////////////////////////////////////////////////////////////////////
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: RichTextWidget(
+                          text1:
+                              AppLocalizations.of(
+                                context,
+                              )!.exploreAppToGetAlittleKnowAboutFeaturesWithOutCredationals,
+                          clicableText:
+                              AppLocalizations.of(context)!.continueAsGuest,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: context.screenHeight * 0.25),
-
-                    ////////////////////////////////////////////////////////////////////////////////
-                    CommonElevatedButton(
-                      isLoading: state is LoginLoadingState,
-                      onPressed: () {
-                        _login();
-                      },
-                      child: Text(AppLocalizations.of(context)!.login),
-                    ),
-                  ],
+                      SizedBox(height: context.screenHeight * 0.25),
+              
+                      ////////////////////////////////////////////////////////////////////////////////
+                      CommonElevatedButton(
+                        isLoading: state is LoginLoadingState,
+                        onPressed: () {
+                          _login();
+                        },
+                        child: Text(AppLocalizations.of(context)!.login),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

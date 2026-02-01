@@ -1,7 +1,6 @@
 part of 'verify_account_cubit.dart';
 
-sealed class IVerifyAccountState extends Equatable
- {
+sealed class IVerifyAccountState extends Equatable {
   const IVerifyAccountState();
 
   @override
@@ -10,9 +9,8 @@ sealed class IVerifyAccountState extends Equatable
 
 final class VerifyAccountInitialState extends IVerifyAccountState {}
 
-class VerifyAccountFailureState extends IVerifyAccountState
- {
- final Failure failure;
+class VerifyAccountFailureState extends IVerifyAccountState {
+  final Failure failure;
 
   const VerifyAccountFailureState({required this.failure});
   @override
@@ -21,10 +19,10 @@ class VerifyAccountFailureState extends IVerifyAccountState
 
 class VerifyAccountLoadingState extends IVerifyAccountState {}
 
-class VerifyAccountSuccessState extends IVerifyAccountState 
-{
+class VerifyAccountSuccessState extends IVerifyAccountState {
+  final VerificationCodeEnum verificationCode;
 
-  const VerifyAccountSuccessState();
+  const VerifyAccountSuccessState(this.verificationCode);
   @override
   List<Object?> get props => [];
 }

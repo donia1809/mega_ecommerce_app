@@ -7,6 +7,7 @@ import 'package:mega_ecommerce_app/core/di/dependency_injection.dart';
 import 'package:mega_ecommerce_app/core/extension/build_context_extensions.dart';
 import 'package:mega_ecommerce_app/core/routes/routs.dart';
 import 'package:mega_ecommerce_app/core/theme/colors.dart';
+import 'package:mega_ecommerce_app/core/theme/text_style.dart';
 import 'package:mega_ecommerce_app/core/utiles/snack_bar_message.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/presentation/cubits/cart/cart_cubit.dart';
 import 'package:mega_ecommerce_app/features/cart_feature/presentation/widgets/cart_list_view_widget.dart';
@@ -32,6 +33,13 @@ class CartScreen extends StatelessWidget {
                 },
               );
             } else if (state is CartSuccessState) {
+              if (state.cartItems.isEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:16.0),
+                  child: Center(child: Text(AppLocalizations.of(context)!.emptyCart,
+                  style: AppTextStyles.bold15.copyWith(fontSize: 24),)),
+                );
+              }
               return Column(
                 children: [
                   Row(
